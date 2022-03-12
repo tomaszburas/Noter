@@ -11,7 +11,7 @@
 .label {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 100%;
     align-items: center;
     margin: var(--margin-sm) 0;
 }
@@ -62,7 +62,7 @@
     padding: var(--padding-sm);
     font-size: var(--font-size-sm);
     border-radius: var(--border-radius);
-    width: 80%;
+    width: 100%;
     color: var(--color-05);
 }
 

@@ -1,5 +1,5 @@
 .notes-container {
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     margin: var(--margin-sm) 0;
@@ -12,12 +12,12 @@
 }
 
 .notes-left-box {
-    width: 80%;
+    width: 85%;
     padding-right: var(--padding-base);
 }
 
 .notes-right-box {
-    width: 20%;
+    width: 15%;
     text-align: center;
 }
 
@@ -43,10 +43,37 @@
 
 @media screen and (max-width: 800px) {
     .notes-container {
-        width: 100%;
         font-size: var(--font-size-sm);
     }
     .notes-date {
         font-size: calc(var(--font-size-sm) * 0.8);
+    }
+}
+
+@media screen and (max-width: 690px) {
+    .notes-left-box {
+        width: 80%;
+        padding-right: 0;
+        padding-bottom: var(--padding-sm);
+    }
+    .notes-right-box {
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .notes-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: var(--margin-sm) 0;
+        align-items: center;
+    }
+    .notes-left-box {
+        width: 100%;
+    }
+    .notes-right-box {
+        width: 100%;
     }
 }
