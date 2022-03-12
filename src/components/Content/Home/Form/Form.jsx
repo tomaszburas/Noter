@@ -12,9 +12,9 @@ export const Form = props => {
         if (note.trim().length < 5) {
             setError(true);
             setErrorText('The note cannot be shorter than 5 characters.')
-        } else if (note.trim().length > 1500) {
+        } else if (note.trim().length > 2500) {
             setError(true);
-            setErrorText('Note cannot be longer than 1500 characters.');
+            setErrorText('Note cannot be longer than 2500 characters.');
         } else {
             setError(false);
             props.addNote(note.trim());
