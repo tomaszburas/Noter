@@ -24,7 +24,7 @@
     padding-bottom: var(--padding-sm);
 }
 
-.notes-delete {
+.notes-delete__btn {
     padding: var(--padding-sm);
     background: var(--color-04);
     color: var(--color-05);
@@ -38,4 +38,14 @@
 
 .note-header {
     margin: var(--margin-sm) 0;
+}
+
+@media screen and (max-width: 800px) {
+    .notes-container {
+        width: 100%;
+        font-size: var(--font-size-sm);
+    }
+    .notes-date {
+        font-size: calc(var(--font-size-sm) * 0.8);
+    }
 }

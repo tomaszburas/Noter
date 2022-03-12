@@ -3,3 +3,9 @@
     max-width: var(--max-width);
     padding: 0 var(--padding-xl);
 }
+
+@media screen and (max-width: 800px) {
+    #root {
+        padding: 0 var(--padding-sm);
+    }
+}

@@ -65,3 +65,21 @@
     width: 80%;
     color: var(--color-05);
 }
+
+@media screen and (max-width: 800px) {
+    .label {
+        width: 100%;
+    }
+    .textarea {
+        font-size: var(--font-size-sm);
+    }
+    .note-add__btn {
+        font-size: var(--font-size-sm);
+    }
+    .error-container {
+        width: 100%;
+    }
+    .error-text {
+        font-size: var(--font-size-sm);
+    }
+}

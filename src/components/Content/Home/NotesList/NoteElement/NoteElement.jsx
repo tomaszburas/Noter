@@ -10,7 +10,7 @@ export const NoteElement = props => {
                 <Link className="notes-date" to={`/note/${props.id}`}>{props.date}</Link>
             </div>
             <div className="notes-right-box">
-                <button className="notes-delete" onClick={e => props.deleteNote(props.id)} title="Delete note">Delete note</button>
+                <button className="notes-delete__btn" onClick={e => props.deleteNote(props.id)} title="Delete note">Delete note</button>
             </div>
         </div>
     )

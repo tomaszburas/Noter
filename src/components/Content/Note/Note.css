@@ -77,3 +77,14 @@
     background-color: var(--color-04);
 }
 
+@media screen and (max-width: 800px) {
+    .note-content {
+        width: 100%;
+        font-size: var(--font-size-sm);
+    }
+    .note-date {
+        font-size: calc(var(--font-size-sm) * 0.8);
+    }
+}
+
+
