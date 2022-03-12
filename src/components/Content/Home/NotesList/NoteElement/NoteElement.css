@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin: var(--margin-sm) 0;
+    margin-top: var(--margin-base);
     background: var(--color-05);
     color: var(--color-01);
     padding: var(--padding-sm);
@@ -35,10 +35,6 @@
 .notes-date {
     cursor: pointer;
     font-size: var(--font-size-sm);
-}
-
-.note-header {
-    margin: var(--margin-sm) 0;
 }
 
 @media screen and (max-width: 800px) {

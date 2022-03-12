@@ -17,10 +17,6 @@
     font-style: italic;
 }
 
-.notes-header {
-    margin: var(--margin-sm) 0;
-}
-
 .notes-list::-webkit-scrollbar {
     width: 1rem;
 }
