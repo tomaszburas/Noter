@@ -39,6 +39,7 @@
     color: var(--color-01);
     padding: var(--padding-sm);
     border-radius: var(--border-radius);
+    word-wrap: break-word;
 }
 
 .note-delete {

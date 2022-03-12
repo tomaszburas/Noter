@@ -8,6 +8,7 @@
     padding: var(--padding-sm);
     border-radius: var(--border-radius);
     align-items: center;
+    word-wrap: break-word;
 }
 
 .notes-left-box {
