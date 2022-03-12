@@ -23,8 +23,8 @@ export const Note = props => {
             {note
                 ? <>
                      <div className="note-nav">
-                         <Link className="link" to='/'><span className="note-go-back__btn">Go Back</span></Link>
-                         <button className="note-delete__btn" onClick={deleteNoteHandler}>Delete Note</button>
+                         <Link className="link" to='/'><span className="note-go-back__btn" title="Go back">Go Back</span></Link>
+                         <button className="note-delete__btn" onClick={deleteNoteHandler} title="Delete note">Delete Note</button>
                      </div>
                      <div className="note-box">
                          <p className="note-header">Note</p>
@@ -35,7 +35,7 @@ export const Note = props => {
                      </div>
                   </>
                 : <>
-                     <Link className="link" to='/'><span className="note-go-back__btn">Go Back</span></Link>
+                     <Link className="link" to='/'><span className="note-go-back__btn" title="Go back">Go Back</span></Link>
                      <div className="note-box">
                          <p className="note-box__text">There is no such note</p>
                      </div>

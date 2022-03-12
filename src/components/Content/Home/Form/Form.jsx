@@ -38,7 +38,7 @@ export const Form = props => {
                   </div>
                 : null
             }
-            <button className="note-add__btn">Add note</button>
+            <button className="note-add__btn" title="Add note">Add note</button>
         </form>
     );
 }
