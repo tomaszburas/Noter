@@ -1,0 +1,41 @@
+.notes-container {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin: var(--margin-sm) 0;
+    background: var(--color-05);
+    color: var(--color-01);
+    padding: var(--padding-sm);
+    border-radius: var(--border-radius);
+    align-items: center;
+}
+
+.notes-left-box {
+    width: 80%;
+    padding-right: var(--padding-base);
+}
+
+.notes-right-box {
+    width: 20%;
+    text-align: center;
+}
+
+.notes-text {
+    padding-bottom: var(--padding-sm);
+}
+
+.notes-delete {
+    padding: var(--padding-sm);
+    background: var(--color-04);
+    color: var(--color-05);
+    border-radius: var(--border-radius);
+}
+
+.notes-date {
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+}
+
+.note-header {
+    margin: var(--margin-sm) 0;
+}

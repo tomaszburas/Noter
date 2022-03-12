@@ -1,0 +1,15 @@
+footer {
+    text-align: right;
+    padding: var(--padding-sm) var(--padding-base);
+    background: var(--color-04);
+    width: 100%;
+    height: var(--footer-height);
+    color: var(--color-05);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    font-size: var(--font-size-sm);
+}
+
+.footer-text {
+    cursor: pointer;
+}
