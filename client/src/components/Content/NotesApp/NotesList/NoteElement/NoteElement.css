@@ -1,0 +1,98 @@
+.notes-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--margin-base);
+    background: var(--color-05);
+    color: var(--color-01);
+    padding: var(--padding-sm);
+    border-radius: var(--border-radius);
+    align-items: center;
+    word-wrap: break-word;
+}
+
+.notes-left-box {
+    width: 85%;
+    padding-right: var(--padding-base);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.notes-right-box {
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+}
+
+.notes-text {
+    padding-bottom: var(--padding-sm);
+}
+
+.notes-delete__btn {
+    padding: var(--padding-sm);
+    background: var(--color-04);
+    color: var(--color-05);
+    border-radius: var(--border-radius);
+}
+
+.notes-edit__btn {
+    padding: var(--padding-sm);
+    background: var(--color-02);
+    color: var(--color-05);
+    border-radius: var(--border-radius);
+    margin-top: var(--margin-sm);
+}
+
+.notes-date {
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+}
+
+.error-container-edit {
+    background: var(--color-04);
+    padding: var(--padding-sm);
+    font-size: var(--font-size-sm);
+    border-radius: var(--border-radius);
+    width: 100%;
+    color: var(--color-05);
+    margin-top: 0;
+}
+
+@media screen and (max-width: 800px) {
+    .notes-container {
+        font-size: var(--font-size-sm);
+    }
+    .notes-date {
+        font-size: calc(var(--font-size-sm) * 0.8);
+    }
+}
+
+@media screen and (max-width: 690px) {
+    .notes-left-box {
+        width: 80%;
+        padding-right: 0;
+        padding-bottom: var(--padding-sm);
+    }
+    .notes-right-box {
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .notes-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: var(--margin-sm) 0;
+        align-items: center;
+    }
+    .notes-left-box {
+        width: 100%;
+    }
+    .notes-right-box {
+        width: 100%;
+    }
+}

@@ -1,0 +1,25 @@
+header {
+    background: var(--color-04);
+    width: 100%;
+    text-align: center;
+    color: var(--color-05);
+    padding: var(--padding-base);
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 100%;
+    cursor: pointer;
+}
+
+.access__header {
+    display: flex;
+}
+
+.access__header__text {
+    cursor: pointer;
+}
