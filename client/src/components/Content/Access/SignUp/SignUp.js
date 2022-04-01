@@ -8,8 +8,10 @@ export const SignUp = props => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
-    const [error, setError] = useState(false);
-    const [errorText, setErrorText] = useState('')
+    const [error, setError] = useState({
+        err: false,
+        text: ''
+    });
 
     const navigate = useNavigate();
 
@@ -19,11 +21,11 @@ export const SignUp = props => {
 
     const submitForm = async (e) => {
         e.preventDefault();
-        setError(false);
+        setError({err: false, text: ''});
 
         const res = await fetch('/sign-up', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 username: username.trim(),
                 password: password.trim(),
@@ -33,13 +35,10 @@ export const SignUp = props => {
 
         const data = await res.json();
 
-        if ((res.status === 400) || (res.status === 500)) {
-            setError(true);
-            setErrorText(data.message);
-        }
-
-        if (res.status === 200) {
+        if (data.success) {
             navigate('/sign-in')
+        } else {
+            setError({err: true, text: data.message});
         }
     }
 
@@ -52,7 +51,7 @@ export const SignUp = props => {
                         <form className="access__box" onSubmit={submitForm}>
                             <label className="access__label__text">
                                 <span className="label__text">Login:</span>
-                                <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
+                                <input type="text" value={username} onChange={e => setUsername(e.target.value)}/>
                             </label>
                             <label className="access__label__text">
                                 <span className="label__text">Password:</span>
@@ -60,15 +59,16 @@ export const SignUp = props => {
                             </label>
                             <label className="access__label__text">
                                 <span className="label__text">Repeat password:</span>
-                                <input type="password" value={repeatPassword} onChange={e => setRepeatPassword(e.target.value)}/>
+                                <input type="password" value={repeatPassword}
+                                       onChange={e => setRepeatPassword(e.target.value)}/>
                             </label>
-                            {error && <ErrorContainer errorText={errorText} edit={true}/>}
+                            {error.err && <ErrorContainer errorText={error.text} edit={true}/>}
                             <div className="button__container">
                                 <button type="submit" className="access__btn" title="Sign up">Sign Up</button>
                             </div>
                         </form>
                     </div>
-                    :   <Loader
+                    : <Loader
                         css={{position: 'absolute', top: '50%', right: '50%'}}
                         color='#19535f'
                     />

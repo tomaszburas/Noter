@@ -16,7 +16,7 @@ export class Controller {
     }
 
     static async getNote(req, res) {
-        const id = req.params.id;
+        const {id} = req.params;
 
         const note = await NoteRecord.getOne(id, req.user.id);
 
@@ -98,10 +98,19 @@ export class Controller {
 
         res
             .status(200)
+            .cookie('access_token', token, {maxAge: 24 * 60 * 60 * 1000, httpOnly: true })
             .json({
                 success: true,
-                message: 'User logged in',
-                token: `Bearer ${token}`,
+                message: 'User logged in'
+            })
+    }
+
+    static async logout(req, res) {
+        res
+            .status(200)
+            .clearCookie('access_token')
+            .json({
+                success: true,
             })
     }
 }

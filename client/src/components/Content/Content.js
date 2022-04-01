@@ -12,14 +12,11 @@ import {Home} from "./Home/Home";
 
 export const Content = props => {
     const [notes, setNotes] = useState([]);
-    const token = localStorage.getItem('token');
+
 
     useEffect(() => {
-        (async() => {
-            const res = await fetch('/notes', {
-                method: 'GET',
-                headers: {'Authorization': token}
-            })
+        (async () => {
+            const res = await fetch('/api/notes');
 
             res.status === 401 ? props.setAuth(false) : props.setAuth(true);
 
@@ -31,18 +28,17 @@ export const Content = props => {
 
             setNotes(data.notes);
         })()
-    },[props.auth])
+    }, [props.auth])
 
     const addNote = async (text) => {
         const note = {
             note: text,
         }
 
-        const res = await fetch('/notes', {
+        const res = await fetch('/api/notes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': token,
             },
             body: JSON.stringify(note)
         })
@@ -56,11 +52,8 @@ export const Content = props => {
     const deleteNote = async (id) => {
         setNotes(prevState => prevState.filter(notes => notes.id !== id));
 
-        await fetch(`/notes/${id}`, {
+        await fetch(`/api/notes/${id}`, {
             method: 'DELETE',
-            headers: {
-                'Authorization': token,
-            }
         })
     }
 
@@ -76,11 +69,10 @@ export const Content = props => {
         });
         setNotes(newNotes);
 
-        await fetch(`/notes`, {
+        await fetch(`/api/notes`, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': token,
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({id, note: text})
         })
@@ -90,8 +82,8 @@ export const Content = props => {
         <div className="content">
             <Routes>
                 <Route path='/' element={
-                    <Home />
-                } />
+                    <Home/>
+                }/>
                 <Route path='/notes' element={
                     <NotesApp notes={notes}
                               addNote={addNote}
@@ -99,24 +91,24 @@ export const Content = props => {
                               editNote={editNote}
                               auth={props.auth}
                     />
-                } />
+                }/>
                 <Route path='/sign-in' element={
-                    <SignIn auth={props.auth} setAuth={props.setAuth} />
-                } />
+                    <SignIn auth={props.auth} setAuth={props.setAuth}/>
+                }/>
                 <Route path='/sign-up' element={
-                    <SignUp auth={props.auth} />
-                } />
+                    <SignUp auth={props.auth}/>
+                }/>
                 <Route path='/notes/:id' element={
                     <Note notes={notes}
                           deleteNote={deleteNote}
                           editNote={editNote}
                           auth={props.auth}
-                          token={token}
+                          setAuth={props.setAuth}
                     />
-                } />
+                }/>
                 <Route path='*' element={
-                    <NotFound />
-                } />
+                    <NotFound/>
+                }/>
             </Routes>
         </div>
     );

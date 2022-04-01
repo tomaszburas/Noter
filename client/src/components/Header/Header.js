@@ -5,11 +5,16 @@ import logo from '../../assets/img/logo.png'
 export const Header = props => {
     const navigate = useNavigate();
 
-    const logoutHandler = e => {
+    const logoutHandler = async (e) => {
         e.preventDefault();
-        localStorage.removeItem('token');
-        props.setAuth(false);
-        navigate('/')
+
+        const res = await fetch('/logout')
+        const data = await res.json();
+
+        if(data.success) {
+            props.setAuth(false);
+            navigate('/')
+        }
     }
 
     return (

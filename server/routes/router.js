@@ -4,15 +4,16 @@ import passport from "passport";
 
 export const Router = express.Router();
 
-Router.use('/notes', passport.authenticate('jwt', {session: false}));
+Router.use('/api/notes', passport.authenticate('jwt', {session: false}));
 
 Router
     .post('/sign-in', Controller.signIn)
     .post('/sign-up', Controller.signUp)
+    .get('/logout', Controller.logout)
 
-    .get('/notes', Controller.getNotes)
-    .get('/notes/:id', Controller.getNote)
-    .post('/notes', Controller.addNote)
-    .delete('/notes/:id', Controller.deleteNote)
-    .put('/notes', Controller.updateNote)
+    .get('/api/notes', Controller.getNotes)
+    .get('/api/notes/:id', Controller.getNote)
+    .post('/api/notes', Controller.addNote)
+    .delete('/api/notes/:id', Controller.deleteNote)
+    .put('/api/notes', Controller.updateNote)
 

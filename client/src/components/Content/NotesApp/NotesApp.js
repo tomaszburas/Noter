@@ -8,22 +8,22 @@ export const NotesApp = props => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        !props.auth && navigate('/sign-in')
-    }, [props.auth, navigate])
+        !props.auth && navigate('/sign-in');
+    }, [props.auth])
 
     return (
         <>
-        {
-            props.auth ?
-                <>
-                    <Form addNote={props.addNote}/>
-                    <NotesList notes={props.notes} deleteNote={props.deleteNote} editNote={props.editNote}/>
-                </>
-                :   <Loader
+            {
+                props.auth
+                    ? <>
+                        <Form addNote={props.addNote}/>
+                        <NotesList notes={props.notes} deleteNote={props.deleteNote} editNote={props.editNote}/>
+                    </>
+                    : <Loader
                         css={{position: 'absolute', top: '50%', right: '50%'}}
                         color='#19535f'
                     />
-        }
+            }
         </>
     )
 }

@@ -15,14 +15,19 @@ export const Note = props => {
         text: ''
     });
 
-    const id = useParams().id;
     const navigate = useNavigate();
+    const id = useParams().id;
+
+    useEffect(() => {
+        !props.auth && navigate('/sign-in');
+    }, [props.auth])
 
     useEffect(() => {
         (async () => {
-            const res = await fetch(`/notes/${id}`, {
-                headers: {'Authorization': props.token}
-            });
+            const res = await fetch(`/api/notes/${id}`);
+
+            res.status === 401 ? props.setAuth(false) : props.setAuth(true);
+
             const data = await res.json();
 
             if (data) {
@@ -32,11 +37,7 @@ export const Note = props => {
             setNoteText(data.note.note);
             setNoteObj(data);
         })();
-    }, [id, props.token]);
-
-    useEffect(() => {
-        !props.auth && navigate('/sign-in')
-    }, [props.auth, navigate])
+    }, [id]);
 
     const deleteNoteHandler = () => {
         props.deleteNote(id);
@@ -59,43 +60,51 @@ export const Note = props => {
         <>
             {noteObj && props.auth
                 ? <>
-                     <div className="note-nav">
-                         <Link className="link" to='/notes'><span className="note-go-back__btn" title="Go back">Go Back</span></Link>
+                    <div className="note-nav">
+                        <Link className="link" to='/notes'><span className="note-go-back__btn"
+                                                                 title="Go back">Go Back</span></Link>
 
-                         <div className="note__right-box">
-                             <button className="note-delete__btn" onClick={deleteNoteHandler} title="Delete note">Delete</button>
-                             <button className="notes-edit__btn" style={{marginLeft: 'var(--margin-sm)'}} onClick={() => setEdit(!edit)} title="Edit note">Edit</button>
-                         </div>
-                     </div>
-                     <div className="note-box">
-                         <p className="note-header">Note</p>
-                         <div className="note-content">
-                             {
-                                 edit
-                                     ? <>
-                                         <ReactMarkdown>{noteText}</ReactMarkdown>
-                                         <p className="note-date">{noteObj.date}</p>
-                                     </>
-                                     : <div className="note-wrapper">
-                                         <div className="notes-left-box">
-                                             {error.err && <ErrorContainer errorText={error.text} edit={true} />}
-                                             <Textarea note={noteText} setNote={setNoteText}/>
-                                             <p className="note-date">{noteObj.date}</p>
-                                         </div>
-                                         <div className="notes-right-box">
-                                             <button className="notes-edit__btn" onClick={() => updateHandler()} title="Edit note">Save</button>
-                                         </div>
-                                     </div>
-                             }
-                         </div>
-                     </div>
-                  </>
+                        <div className="note__right-box">
+                            <button className="note-delete__btn" onClick={deleteNoteHandler}
+                                    title="Delete note">Delete
+                            </button>
+                            <button className="notes-edit__btn" style={{marginLeft: 'var(--margin-sm)'}}
+                                    onClick={() => setEdit(!edit)} title="Edit note">Edit
+                            </button>
+                        </div>
+                    </div>
+                    <div className="note-box">
+                        <p className="note-header">Note</p>
+                        <div className="note-content">
+                            {
+                                edit
+                                    ? <>
+                                        <ReactMarkdown>{noteText}</ReactMarkdown>
+                                        <p className="note-date">{noteObj.date}</p>
+                                    </>
+                                    : <div className="note-wrapper">
+                                        <div className="notes-left-box">
+                                            {error.err && <ErrorContainer errorText={error.text} edit={true}/>}
+                                            <Textarea note={noteText} setNote={setNoteText}/>
+                                            <p className="note-date">{noteObj.date}</p>
+                                        </div>
+                                        <div className="notes-right-box">
+                                            <button className="notes-edit__btn" onClick={() => updateHandler()}
+                                                    title="Edit note">Save
+                                            </button>
+                                        </div>
+                                    </div>
+                            }
+                        </div>
+                    </div>
+                </>
                 : <>
-                     <Link className="link" to='/notes'><span className="note-go-back__btn" title="Go back">Go Back</span></Link>
-                     <div className="note-box">
-                         <p className="note-box__text">There is no such note</p>
-                     </div>
-                  </>
+                    <Link className="link" to='/notes'><span className="note-go-back__btn"
+                                                             title="Go back">Go Back</span></Link>
+                    <div className="note-box">
+                        <p className="note-box__text">There is no such note</p>
+                    </div>
+                </>
             }
         </>
     )

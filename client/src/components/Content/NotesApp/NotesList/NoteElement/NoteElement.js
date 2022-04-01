@@ -29,24 +29,28 @@ export const NoteElement = props => {
         <div className="notes-container">
             {
                 !edit
-                ? <>
-                    <div className="notes-left-box">
-                        <ReactMarkdown className="notes-text">{props.note}</ReactMarkdown>
-                        <Link className="notes-date" to={`/notes/${props.id}`}>{props.date}</Link>
-                    </div>
-                    <div className="notes-right-box">
-                        <button className="notes-delete__btn" onClick={() => props.deleteNote(props.id)} title="Delete note">Delete</button>
-                        <button className="notes-edit__btn" onClick={() => setEdit(!edit)} title="Edit note">Edit</button>
-                    </div>
+                    ? <>
+                        <div className="notes-left-box">
+                            <ReactMarkdown className="notes-text">{props.note}</ReactMarkdown>
+                            <Link className="notes-date" to={`/notes/${props.id}`}>{props.date}</Link>
+                        </div>
+                        <div className="notes-right-box">
+                            <button className="notes-delete__btn" onClick={() => props.deleteNote(props.id)}
+                                    title="Delete note">Delete
+                            </button>
+                            <button className="notes-edit__btn" onClick={() => setEdit(!edit)} title="Edit note">Edit
+                            </button>
+                        </div>
                     </>
-                : <>
+                    : <>
                         <div className="notes-left-box">
                             {error.err && <ErrorContainer errorText={error.text} edit={true}/>}
                             <Textarea note={updateNote} setNote={setUpdateNote}/>
                             <Link className="notes-date" to={`/notes/${props.id}`}>{props.date}</Link>
                         </div>
                         <div className="notes-right-box">
-                            <button className="notes-edit__btn" onClick={() => updateHandler()} title="Edit note">Save</button>
+                            <button className="notes-edit__btn" onClick={() => updateHandler()} title="Edit note">Save
+                            </button>
                         </div>
                     </>
             }
