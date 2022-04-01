@@ -61,14 +61,15 @@ export const Note = props => {
             {noteObj && props.auth
                 ? <>
                     <div className="note-nav">
-                        <Link className="link" to='/notes'><span className="note-go-back__btn"
-                                                                 title="Go back">Go Back</span></Link>
+                        <Link className="link" to='/notes'>
+                            <span className="note-go-back__btn" title="Go back">Go Back</span>
+                        </Link>
 
-                        <div className="note__right-box">
+                        <div className="note-right-box-top">
                             <button className="note-delete__btn" onClick={deleteNoteHandler}
                                     title="Delete note">Delete
                             </button>
-                            <button className="notes-edit__btn" style={{marginLeft: 'var(--margin-sm)'}}
+                            <button className="notes-edit__btn" style={{marginLeft: 'var(--margin-sm)', marginTop: '0'}}
                                     onClick={() => setEdit(!edit)} title="Edit note">Edit
                             </button>
                         </div>
@@ -83,13 +84,13 @@ export const Note = props => {
                                         <p className="note-date">{noteObj.date}</p>
                                     </>
                                     : <div className="note-wrapper">
-                                        <div className="notes-left-box">
+                                        <div className="note-left-box">
                                             {error.err && <ErrorContainer errorText={error.text} edit={true}/>}
                                             <Textarea note={noteText} setNote={setNoteText}/>
                                             <p className="note-date">{noteObj.date}</p>
                                         </div>
-                                        <div className="notes-right-box">
-                                            <button className="notes-edit__btn" onClick={() => updateHandler()}
+                                        <div className="note-right-box">
+                                            <button className="notes-edit-save__btn" onClick={() => updateHandler()}
                                                     title="Edit note">Save
                                             </button>
                                         </div>

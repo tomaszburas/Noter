@@ -32,3 +32,18 @@
     font-size: var(--font-size-xl);
     font-weight: bold;
 }
+
+@media screen and (max-width: 600px) {
+    .home__img {
+        width: 70%;
+    }
+
+    .home__title {
+        font-size: var(--font-size-base);
+        text-align: center;
+    }
+
+    .home__btn {
+        font-size: var(--font-size-lg);
+    }
+}

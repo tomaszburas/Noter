@@ -44,3 +44,9 @@
     background: var(--color-04);
     border-radius: var(--border-radius);
 }
+
+@media screen and (max-width: 800px) {
+    .access__box {
+        width: 80%;
+    }
+}

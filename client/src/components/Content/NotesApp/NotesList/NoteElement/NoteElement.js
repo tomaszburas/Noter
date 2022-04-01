@@ -48,8 +48,8 @@ export const NoteElement = props => {
                             <Textarea note={updateNote} setNote={setUpdateNote}/>
                             <Link className="notes-date" to={`/notes/${props.id}`}>{props.date}</Link>
                         </div>
-                        <div className="notes-right-box">
-                            <button className="notes-edit__btn" onClick={() => updateHandler()} title="Edit note">Save
+                        <div className="notes-right-box-save">
+                            <button className="notes-edit-save__btn" onClick={() => updateHandler()} title="Edit note">Save
                             </button>
                         </div>
                     </>
