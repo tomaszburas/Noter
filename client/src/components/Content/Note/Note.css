@@ -80,6 +80,13 @@
     border-radius: var(--border-radius);
 }
 
+.note-edit__btn {
+    padding: var(--padding-sm);
+    background: var(--color-02);
+    color: var(--color-05);
+    border-radius: var(--border-radius);
+}
+
 .note-date {
     font-size: var(--font-size-sm);
     padding-top: var(--padding-sm);

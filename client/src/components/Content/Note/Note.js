@@ -69,7 +69,7 @@ export const Note = props => {
                             <button className="note-delete__btn" onClick={deleteNoteHandler}
                                     title="Delete note">Delete
                             </button>
-                            <button className="notes-edit__btn" style={{marginLeft: 'var(--margin-sm)', marginTop: '0'}}
+                            <button className="note-edit__btn" style={{marginLeft: 'var(--margin-sm)', marginTop: '0'}}
                                     onClick={() => setEdit(!edit)} title="Edit note">Edit
                             </button>
                         </div>
@@ -90,7 +90,7 @@ export const Note = props => {
                                             <p className="note-date">{noteObj.date}</p>
                                         </div>
                                         <div className="note-right-box">
-                                            <button className="notes-edit-save__btn" onClick={() => updateHandler()}
+                                            <button className="show-note__btn" onClick={() => updateHandler()}
                                                     title="Edit note">Save
                                             </button>
                                         </div>

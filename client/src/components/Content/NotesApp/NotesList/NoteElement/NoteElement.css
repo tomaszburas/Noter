@@ -23,51 +23,20 @@
 .notes-right-box {
     width: 15%;
     display: flex;
-    flex-direction: column;
+    justify-content: flex-end;
 }
 
-.notes-right-box-save {
-    width: 15%;
-    display: flex;
-    flex-direction: column;
-}
-
-.notes-delete__btn {
-    padding: var(--padding-sm);
-    background: var(--color-04);
-    color: var(--color-05);
-    border-radius: var(--border-radius);
-}
-
-.notes-edit__btn {
+.show-note__btn {
     padding: var(--padding-sm);
     background: var(--color-02);
     color: var(--color-05);
     border-radius: var(--border-radius);
-    margin-top: var(--margin-sm);
-}
-
-.notes-edit-save__btn {
-    padding: var(--padding-sm);
-    background: var(--color-02);
-    color: var(--color-05);
-    border-radius: var(--border-radius);
+    text-align: center;
 }
 
 .notes-date {
-    cursor: pointer;
     font-size: var(--font-size-sm);
     margin-top: var(--margin-sm);
-}
-
-.error-container-edit {
-    background: var(--color-04);
-    padding: var(--padding-sm);
-    font-size: var(--font-size-sm);
-    border-radius: var(--border-radius);
-    width: 100%;
-    color: var(--color-05);
-    margin-top: 0;
 }
 
 @media screen and (max-width: 800px) {
@@ -88,29 +57,19 @@
         margin: var(--margin-sm) 0;
         align-items: center;
     }
+
     .notes-left-box {
         width: 100%;
         padding-right: 0;
     }
+
     .notes-right-box {
         margin-top: var(--margin-base);
         width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: center;
     }
 
-    .notes-right-box-save {
-        margin-top: var(--margin-base);
+    .show-note__btn {
         width: 100%;
-    }
-
-    .notes-delete__btn {
-        width: 40%;
-    }
-
-    .notes-edit__btn {
-        width: 40%;
-        margin-top: 0;
     }
 }
