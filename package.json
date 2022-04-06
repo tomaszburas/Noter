@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "Noter",
   "version": "1.0.0",
   "description": "",
   "main": "./server.ts",
