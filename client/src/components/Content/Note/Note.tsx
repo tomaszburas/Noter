@@ -25,7 +25,6 @@ export const Note = (props: Props) => {
     useEffect(() => {
         (async () => {
             const res = await fetch(`/api/notes/${id}`);
-            console.log(id);
 
             res.status === 401 && navigate('/sign-in');
 

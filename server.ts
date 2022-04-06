@@ -20,15 +20,15 @@ app.use(
 );
 app.use(cookieParser());
 app.use(passport.initialize());
-app.use(express.static('./client/build'));
+app.use(express.static(__dirname + '/client/build'));
 
 import './server/middleware/passport';
 
 app.use('/', Router);
-app.get('*', (req, res) => {
-    res.sendFile('./client/build/index.html');
-});
-
 app.use(handleError);
+
+app.get('*', (req, res) => {
+    res.sendFile(__dirname + '/client/build/index.html');
+});
 
 app.listen(PORT, () => console.log('Server has started.'));
