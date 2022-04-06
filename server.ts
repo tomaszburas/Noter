@@ -25,7 +25,7 @@ app.use(express.static('./client/build'));
 import './server/middleware/passport';
 
 app.use('/', Router);
-app.get('/*', (req, res) => {
+app.get('*', (req, res) => {
     res.sendFile('./client/build/index.html');
 });
 
