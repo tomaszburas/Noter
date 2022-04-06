@@ -2,12 +2,12 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/server.js",
+  "main": "./server.ts",
   "type": "module",
   "scripts": {
     "start:dev": "tsnd server.ts",
     "start": "node ./dist/server.js",
-    "build": "tsc"
+    "postinstall": "tsc"
   },
   "author": "",
   "license": "ISC",
