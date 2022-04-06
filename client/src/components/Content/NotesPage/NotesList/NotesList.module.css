@@ -1,0 +1,30 @@
+.notes__container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: var(--color-01);
+    color: var(--color-05);
+    border-radius: var(--border-radius);
+    width: 100%;
+    margin-top: var(--margin-base);
+    padding: var(--padding-base);
+    overflow-y: auto;
+}
+
+.text {
+    margin-top: var(--margin-base);
+    font-size: var(--font-size-sm);
+    font-style: italic;
+}
+
+.notes__container::-webkit-scrollbar {
+    width: 1rem;
+}
+
+.notes__container::-webkit-scrollbar-track {
+    background-color: var(--color-05);
+}
+
+.notes__container::-webkit-scrollbar-thumb {
+    background-color: var(--color-04);
+}

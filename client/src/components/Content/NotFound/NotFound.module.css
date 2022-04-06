@@ -1,0 +1,30 @@
+.link {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: var(--color-01);
+    color: var(--color-05);
+    border-radius: var(--border-radius);
+    width: 100%;
+    margin-top: var(--margin-base);
+    padding: var(--padding-base);
+    overflow-y: auto;
+}
+
+.container__text {
+    font-size: var(--font-size-sm);
+    font-style: italic;
+}
+
+.back__btn {
+    padding: var(--padding-sm);
+    background: var(--color-02);
+    color: var(--color-05);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}

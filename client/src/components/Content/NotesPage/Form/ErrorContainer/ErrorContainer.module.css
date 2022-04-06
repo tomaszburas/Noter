@@ -1,0 +1,17 @@
+.error__container {
+    background: var(--color-04);
+    padding: var(--padding-sm);
+    font-size: var(--font-size-sm);
+    border-radius: var(--border-radius);
+    width: 100%;
+    color: var(--color-05);
+}
+
+@media screen and (max-width: 800px) {
+    .error__container {
+        width: 100%;
+    }
+    .error__text {
+        font-size: var(--font-size-sm);
+    }
+}
