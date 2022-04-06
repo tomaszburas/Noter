@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import homeImg from '../../../assets/img/home-img.svg';
 import styles from './Home.module.css';

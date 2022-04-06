@@ -1,6 +1,6 @@
 import { Form } from './Form/Form';
 import { NotesList } from './NotesList/NotesList';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Loader from 'react-spinners/GridLoader';
 import { NoteRecordEntity } from 'types';

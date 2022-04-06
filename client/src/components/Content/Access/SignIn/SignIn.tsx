@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Loader from 'react-spinners/GridLoader';
 import { ErrorContainer } from '../../NotesPage/Form/ErrorContainer/ErrorContainer';

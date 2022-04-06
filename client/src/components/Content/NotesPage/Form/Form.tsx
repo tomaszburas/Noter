@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { Textarea } from './Textarea/Textarea';
 import { ErrorContainer } from './ErrorContainer/ErrorContainer';
 import styles from './Form.module.css';
