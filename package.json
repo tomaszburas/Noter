@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start:dev": "tsnd server.ts",
-    "start": "node ./dist/server.js",
+    "start": "node --es-module-specifier-resolution=node ./dist/server.js",
     "postinstall": "tsc"
   },
   "author": "",
