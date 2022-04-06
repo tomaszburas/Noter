@@ -16,7 +16,6 @@ export class Controller {
 
     static async getNote(req: Request, res: Response) {
         const { id } = req.params;
-        console.log(id);
 
         const note = await NoteRecord.getOne(id, req.user.id);
 
