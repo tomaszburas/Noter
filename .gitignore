@@ -8,7 +8,7 @@
 
 /.idea
 /.env
-/dist
+/server/dist
 
 # testing
 /coverage
