@@ -46,7 +46,7 @@ export const EditNote = (props: Props) => {
             <div className={styles.rightBox}>
                 <button
                     className={styles.saveBtn}
-                    onClick={() => updateHandler()}
+                    onClick={updateHandler}
                     title="Edit note">
                     Save
                 </button>

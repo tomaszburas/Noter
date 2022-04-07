@@ -48,9 +48,7 @@ export const SignIn = (props: Props) => {
             {!props.auth ? (
                 <div className={styles.accessContainer}>
                     <p className={styles.accessTitle}>Sign In</p>
-                    <form
-                        className={styles.accessBox}
-                        onSubmit={(e) => submitForm(e)}>
+                    <form className={styles.accessBox} onSubmit={submitForm}>
                         <label className={styles.accessLabel}>
                             <span className={styles.labelText}>Login:</span>
                             <input

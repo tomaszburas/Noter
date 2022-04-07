@@ -42,7 +42,7 @@ export const Header = (props: Props) => {
                         </Link>
                         <p
                             className={styles.accessHeaderText}
-                            onClick={() => logoutHandler()}
+                            onClick={logoutHandler}
                             title="Logout">
                             Logout
                         </p>

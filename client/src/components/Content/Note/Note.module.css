@@ -11,6 +11,11 @@
     align-items: center;
 }
 
+.noteDate {
+    font-size: var(--font-size-sm);
+    padding-top: var(--padding-sm);
+}
+
 .noteContainer {
     display: flex;
     align-items: center;

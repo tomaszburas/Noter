@@ -26,7 +26,7 @@ export const NavNote = (props: Props) => {
             <div className={styles.rightBoxTop}>
                 <button
                     className={styles.deleteBtn}
-                    onClick={() => deleteNoteHandler()}
+                    onClick={deleteNoteHandler}
                     title="Delete note">
                     Delete
                 </button>

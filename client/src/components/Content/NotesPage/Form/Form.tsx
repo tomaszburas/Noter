@@ -35,7 +35,7 @@ export const Form = (props: Props) => {
     };
 
     return (
-        <form className={styles.form} onSubmit={(e) => submitForm(e)}>
+        <form className={styles.form} onSubmit={submitForm}>
             <label className={styles.label}>
                 <span className={styles.labelText}>Enter your note</span>
                 <Textarea note={note} setNote={setNote} />
