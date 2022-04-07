@@ -1,14 +1,16 @@
 ## Noter
-Simple React Notes app. Notes can write in markdown format. Click on the date move to single note.
+Simple Notes app. Notes can write in markdown format.
 
 ### Frontend
-* React.js
+* React
+* TypeScript
 
 ### Backend
-* node.js
-* express.js
+* Node
+* Express
+* TypeScript
 * MySql
 
-LIVE: [https://noter-tb.herokuapp.com/](https://noter-tb.herokuapp.com/ "Noter")
+LIVE: [https://nameless-savannah-60271.herokuapp.com/](https://nameless-savannah-60271.herokuapp.com/ "Noter")
 
 ![Noter](https://i.imgur.com/AlrgBBS.jpg)
