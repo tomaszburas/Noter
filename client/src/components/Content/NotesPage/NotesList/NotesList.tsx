@@ -1,4 +1,3 @@
-import React from 'react';
 import { NoteRecordEntity } from 'types';
 import { NoteElement } from './NoteElement/NoteElement';
 import styles from './NotesList.module.css';

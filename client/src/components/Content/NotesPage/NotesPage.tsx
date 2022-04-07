@@ -1,4 +1,3 @@
-import React from 'react';
 import { Form } from './Form/Form';
 import { NotesList } from './NotesList/NotesList';
 import { Navigate } from 'react-router-dom';

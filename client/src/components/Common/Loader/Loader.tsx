@@ -1,5 +1,4 @@
 import styles from '../../Content/Content.module.css';
-import React from 'react';
 import GridLoader from 'react-spinners/GridLoader';
 
 export const Loader = () => {

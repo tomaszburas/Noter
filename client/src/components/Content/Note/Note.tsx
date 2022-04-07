@@ -1,7 +1,7 @@
 import ReactMarkdown from 'react-markdown';
 import moment from 'moment';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavNote } from './NavNote/NavNote';
 import { EditNote } from './EditNote/EditNote';
 import styles from './Note.module.css';
