@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
+    "build": "set BUILD_PATH=../dist/client && react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
