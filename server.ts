@@ -4,10 +4,10 @@ import passport from 'passport';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
-import { PORT } from './server/config';
-import { Router } from './server/routes/router';
-import { handleError } from './server/middleware/errors';
-import './server/db/db';
+import { PORT } from './server/config.js';
+import { Router } from './server/routes/router.js';
+import { handleError } from './server/middleware/errors.js';
+import './server/db/db.js';
 
 const app = express();
 
@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(express.static(__dirname + '/client/build'));
 
-import './server/middleware/passport';
+import './server/middleware/passport.js';
 
 app.use('/', Router);
 app.use(handleError);
