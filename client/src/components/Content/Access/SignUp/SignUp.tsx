@@ -44,31 +44,29 @@ export const SignUp = (props: Props) => {
     return (
         <>
             {!props.auth ? (
-                <div className={styles.access__container}>
-                    <p className={styles.access__title}>Sign Up</p>
+                <div className={styles.accessContainer}>
+                    <p className={styles.accessTitle}>Sign Up</p>
                     <form
-                        className={styles.access__box}
+                        className={styles.accessBox}
                         onSubmit={(e) => submitForm(e)}>
-                        <label className={styles.access__label}>
-                            <span className={styles.label__text}>Login:</span>
+                        <label className={styles.accessLabel}>
+                            <span className={styles.labelText}>Login:</span>
                             <input
                                 type="text"
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
                             />
                         </label>
-                        <label className={styles.access__label}>
-                            <span className={styles.label__text}>
-                                Password:
-                            </span>
+                        <label className={styles.accessLabel}>
+                            <span className={styles.labelText}>Password:</span>
                             <input
                                 type="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                         </label>
-                        <label className={styles.access__label}>
-                            <span className={styles.label__text}>
+                        <label className={styles.accessLabel}>
+                            <span className={styles.labelText}>
                                 Repeat password:
                             </span>
                             <input
@@ -80,10 +78,10 @@ export const SignUp = (props: Props) => {
                             />
                         </label>
                         {error.err && <ErrorContainer errorText={error.text} />}
-                        <div className={styles.button__container}>
+                        <div className={styles.buttonContainer}>
                             <button
                                 type="submit"
-                                className={styles.access__btn}
+                                className={styles.accessBtn}
                                 title="Sign up">
                                 Sign Up
                             </button>

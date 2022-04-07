@@ -1,4 +1,4 @@
-.back__btn {
+.backBtn {
     padding: var(--padding-sm);
     background: var(--color-02);
     color: var(--color-05);
@@ -11,7 +11,7 @@
     align-items: center;
 }
 
-.note__container {
+.noteContainer {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -24,7 +24,7 @@
     overflow-y: auto;
 }
 
-.note__content {
+.noteContent {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -36,62 +36,26 @@
     word-wrap: break-word;
 }
 
-.note-delete {
-    padding: var(--padding-sm);
-    background: var(--color-04);
-    color: var(--color-05);
-    border-radius: var(--border-radius);
-}
-
-.note__date {
-    font-size: var(--font-size-sm);
-    padding-top: var(--padding-sm);
-}
-
-.note__box__text {
+.noteBoxText {
     font-size: var(--font-size-sm);
     font-style: italic;
 }
 
-.note__box::-webkit-scrollbar {
+.noteBox::-webkit-scrollbar {
     width: 1rem;
 }
 
-.note__box::-webkit-scrollbar-track {
+.noteBox::-webkit-scrollbar-track {
     background-color: var(--color-05);
 }
 
-.note__box::-webkit-scrollbar-thumb {
+.noteBox::-webkit-scrollbar-thumb {
     background-color: var(--color-04);
 }
 
 @media screen and (max-width: 800px) {
-    .note__content {
+    .noteContent {
         width: 100%;
         font-size: var(--font-size-sm);
-    }
-    .note__date {
-        font-size: calc(var(--font-size-sm) * 0.8);
-    }
-}
-
-@media screen and (max-width: 700px) {
-    .note-wrapper {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .note-left-box {
-        width: 100%;
-        padding-right: 0;
-        padding-bottom: var(--padding-sm);
-    }
-
-    .note-right-box {
-        margin-top: var(--margin-sm);
-        width: 100%;
     }
 }

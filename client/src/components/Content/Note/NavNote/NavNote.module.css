@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.back__btn {
+.backBtn {
     padding: var(--padding-sm);
     background: var(--color-02);
     color: var(--color-05);
@@ -17,18 +17,18 @@
     cursor: pointer;
 }
 
-.right__box__top {
+.rightBoxTop {
     display: flex;
 }
 
-.delete__btn {
+.deleteBtn {
     padding: var(--padding-sm);
     background: var(--color-04);
     color: var(--color-05);
     border-radius: var(--border-radius);
 }
 
-.edit__btn {
+.editBtn {
     padding: var(--padding-sm);
     background: var(--color-02);
     color: var(--color-05);

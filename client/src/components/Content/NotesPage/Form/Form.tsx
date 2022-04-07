@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { Textarea } from './Textarea/Textarea';
 import { ErrorContainer } from '../../../Common/ErrorContainer/ErrorContainer';
 import styles from './Form.module.css';
@@ -37,11 +37,11 @@ export const Form = (props: Props) => {
     return (
         <form className={styles.form} onSubmit={(e) => submitForm(e)}>
             <label className={styles.label}>
-                <span className={styles.label__text}>Enter your note</span>
+                <span className={styles.labelText}>Enter your note</span>
                 <Textarea note={note} setNote={setNote} />
             </label>
             {error.err && <ErrorContainer errorText={error.text} />}
-            <button className={styles.add__btn} title="Add note">
+            <button className={styles.addBtn} title="Add note">
                 Add note
             </button>
         </form>

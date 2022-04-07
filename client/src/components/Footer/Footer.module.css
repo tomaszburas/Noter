@@ -10,6 +10,6 @@
     font-size: var(--font-size-sm);
 }
 
-.footer__text {
+.footerText {
     cursor: pointer;
 }

@@ -16,12 +16,12 @@
     overflow-y: auto;
 }
 
-.container__text {
+.containerText {
     font-size: var(--font-size-sm);
     font-style: italic;
 }
 
-.back__btn {
+.backBtn {
     padding: var(--padding-sm);
     background: var(--color-02);
     color: var(--color-05);

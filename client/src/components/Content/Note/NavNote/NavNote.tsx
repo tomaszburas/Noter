@@ -16,22 +16,22 @@ export const NavNote = (props: Props) => {
     };
 
     return (
-        <div className={styles.note__nav}>
+        <div className={styles.noteNav}>
             <Link className={styles.link} to="/notes">
-                <span className={styles.back__btn} title="Go back">
+                <span className={styles.backBtn} title="Go back">
                     Go Back
                 </span>
             </Link>
 
-            <div className={styles.right__box__top}>
+            <div className={styles.rightBoxTop}>
                 <button
-                    className={styles.delete__btn}
+                    className={styles.deleteBtn}
                     onClick={() => deleteNoteHandler()}
                     title="Delete note">
                     Delete
                 </button>
                 <button
-                    className={styles.edit__btn}
+                    className={styles.editBtn}
                     onClick={() => props.setEdit(true)}
                     title="Edit note">
                     Edit

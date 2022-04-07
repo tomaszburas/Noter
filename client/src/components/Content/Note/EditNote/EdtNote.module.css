@@ -1,9 +1,9 @@
-.note__container {
+.noteContainer {
     display: flex;
     align-items: center;
 }
 
-.left__box {
+.leftBox {
     width: 85%;
     padding-right: var(--padding-base);
     display: flex;
@@ -12,18 +12,18 @@
     height: 100%;
 }
 
-.right__box {
+.rightBox {
     width: 15%;
     display: flex;
     flex-direction: column;
 }
 
-.note__date {
+.noteDate {
     font-size: var(--font-size-sm);
     padding-top: var(--padding-sm);
 }
 
-.save__btn {
+.saveBtn {
     padding: var(--padding-sm);
     background: var(--color-02);
     color: var(--color-05);
@@ -32,7 +32,7 @@
 }
 
 @media screen and (max-width: 540px) {
-    .note__container {
+    .noteContainer {
         width: 100%;
         flex-direction: column;
         justify-content: center;
@@ -40,18 +40,18 @@
         align-items: center;
     }
 
-    .left__box {
+    .leftBox {
         width: 100%;
         padding-right: 0;
     }
 
-    .right__box {
+    .rightBox {
         margin-top: var(--margin-base);
         width: 100%;
         justify-content: center;
     }
 
-    .save__btn {
+    .saveBtn {
         width: 100%;
     }
 }

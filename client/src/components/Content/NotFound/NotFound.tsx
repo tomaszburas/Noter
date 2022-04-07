@@ -5,12 +5,12 @@ export const NotFound = () => {
     return (
         <>
             <Link className={styles.link} to="/">
-                <span className={styles.back__btn} title="Go home">
+                <span className={styles.backBtn} title="Go home">
                     Go Home
                 </span>
             </Link>
             <div className={styles.container}>
-                <p className={styles.container__text}>404: Page Not Found 🛑</p>
+                <p className={styles.containerText}>404: Page Not Found 🛑</p>
             </div>
         </>
     );

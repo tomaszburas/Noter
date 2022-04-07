@@ -1,4 +1,4 @@
-.notes__container {
+.notesContainer {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -17,14 +17,14 @@
     font-style: italic;
 }
 
-.notes__container::-webkit-scrollbar {
+.notesContainer::-webkit-scrollbar {
     width: 1rem;
 }
 
-.notes__container::-webkit-scrollbar-track {
+.notesContainer::-webkit-scrollbar-track {
     background-color: var(--color-05);
 }
 
-.notes__container::-webkit-scrollbar-thumb {
+.notesContainer::-webkit-scrollbar-thumb {
     background-color: var(--color-04);
 }

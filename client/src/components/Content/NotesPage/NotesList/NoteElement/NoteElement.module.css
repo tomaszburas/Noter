@@ -1,4 +1,4 @@
-.notes__container {
+.notesContainer {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -11,7 +11,7 @@
     word-wrap: break-word;
 }
 
-.left__box {
+.leftBox {
     width: 85%;
     padding-right: var(--padding-base);
     display: flex;
@@ -20,13 +20,13 @@
     height: 100%;
 }
 
-.right__box {
+.rightBox {
     width: 15%;
     display: flex;
     justify-content: flex-end;
 }
 
-.show__btn {
+.showBtn {
     padding: var(--padding-sm);
     background: var(--color-02);
     color: var(--color-05);
@@ -34,22 +34,22 @@
     text-align: center;
 }
 
-.note__date {
+.noteDate {
     font-size: var(--font-size-sm);
     margin-top: var(--margin-sm);
 }
 
 @media screen and (max-width: 800px) {
-    .notes__container {
+    .notesContainer {
         font-size: var(--font-size-sm);
     }
-    .notes__date {
+    .notesDate {
         font-size: calc(var(--font-size-sm) * 0.8);
     }
 }
 
 @media screen and (max-width: 540px) {
-    .notes__container {
+    .notesContainer {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -58,18 +58,18 @@
         align-items: center;
     }
 
-    .left__box {
+    .leftBox {
         width: 100%;
         padding-right: 0;
     }
 
-    .right__box {
+    .rightBox {
         margin-top: var(--margin-base);
         width: 100%;
         justify-content: center;
     }
 
-    .show__btn {
+    .showBtn {
         width: 100%;
     }
 }

@@ -11,15 +11,13 @@ interface Props {
 
 export const NoteElement = (props: Props) => {
     return (
-        <div className={styles.notes__container}>
-            <div className={styles.left__box}>
+        <div className={styles.notesContainer}>
+            <div className={styles.leftBox}>
                 <ReactMarkdown>{props.note.text}</ReactMarkdown>
-                <p className={styles.note__date}>{props.note.date}</p>
+                <p className={styles.noteDate}>{props.note.date}</p>
             </div>
-            <div className={styles.right__box}>
-                <Link
-                    className={styles.show__btn}
-                    to={`/notes/${props.note.id}`}>
+            <div className={styles.rightBox}>
+                <Link className={styles.showBtn} to={`/notes/${props.note.id}`}>
                     <button title="Delete note">Show</button>
                 </Link>
             </div>

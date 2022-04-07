@@ -10,7 +10,7 @@ interface Props {
 
 export const NotesList = (props: Props) => {
     return (
-        <div className={styles.notes__container}>
+        <div className={styles.notesContainer}>
             <p>Notes List</p>
             {props.notes.length ? (
                 props.notes.map((note) => {

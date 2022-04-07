@@ -54,13 +54,13 @@ export const Note = (props: Props) => {
                         setEdit={setEdit}
                         deleteNote={props.deleteNote}
                     />
-                    <div className={styles.note__container}>
+                    <div className={styles.noteContainer}>
                         <p>Note</p>
-                        <div className={styles.note__content}>
+                        <div className={styles.noteContent}>
                             {!edit ? (
                                 <>
                                     <ReactMarkdown>{noteText}</ReactMarkdown>
-                                    <p className={styles.note__date}>
+                                    <p className={styles.noteDate}>
                                         {note.date}
                                     </p>
                                 </>
@@ -80,12 +80,12 @@ export const Note = (props: Props) => {
             ) : (
                 <>
                     <Link className={styles.link} to="/notes">
-                        <span className={styles.back__btn} title="Go back">
+                        <span className={styles.backBtn} title="Go back">
                             Go Back
                         </span>
                     </Link>
-                    <div className={styles.note__box}>
-                        <p className={styles.note__box__text}>
+                    <div className={styles.noteBox}>
+                        <p className={styles.noteBoxText}>
                             There is no such note
                         </p>
                     </div>

@@ -1,4 +1,4 @@
-.error__container {
+.errorContainer {
     background: var(--color-04);
     padding: var(--padding-sm);
     font-size: var(--font-size-sm);
@@ -8,10 +8,10 @@
 }
 
 @media screen and (max-width: 800px) {
-    .error__container {
+    .errorContainer {
         width: 100%;
     }
-    .error__text {
+    .errorText {
         font-size: var(--font-size-sm);
     }
 }

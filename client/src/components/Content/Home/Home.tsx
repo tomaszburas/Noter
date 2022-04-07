@@ -4,13 +4,11 @@ import styles from './Home.module.css';
 
 export const Home = () => {
     return (
-        <div className={styles.home__container}>
-            <p className={styles.home__title}>
-                Notes app with markdown format.
-            </p>
-            <img className={styles.home__img} src={homeImg} alt="home img" />
+        <div className={styles.homeContainer}>
+            <p className={styles.homeTitle}>Notes app with markdown format.</p>
+            <img className={styles.homeImg} src={homeImg} alt="home img" />
             <Link to="/notes">
-                <button className={styles.home__btn} title="Start now">
+                <button className={styles.homeBtn} title="Start now">
                     Start now ✍️
                 </button>
             </Link>

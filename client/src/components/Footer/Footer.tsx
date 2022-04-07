@@ -5,7 +5,7 @@ export const Footer = () => {
         <footer className={styles.footer}>
             <a
                 href="https://github.com/tomaszburas"
-                className={styles.footer__text}
+                className={styles.footerText}
                 title="GitHub">
                 @Tomaszenko
             </a>

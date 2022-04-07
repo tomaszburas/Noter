@@ -37,15 +37,15 @@ export const EditNote = (props: Props) => {
     };
 
     return (
-        <div className={styles.note__container}>
-            <div className={styles.left__box}>
+        <div className={styles.noteContainer}>
+            <div className={styles.leftBox}>
                 {error.err && <ErrorContainer errorText={error.text} />}
                 <Textarea note={props.noteText} setNote={props.setNoteText} />
-                <p className={styles.note__date}>{props.noteDate}</p>
+                <p className={styles.noteDate}>{props.noteDate}</p>
             </div>
-            <div className={styles.right__box}>
+            <div className={styles.rightBox}>
                 <button
-                    className={styles.save__btn}
+                    className={styles.saveBtn}
                     onClick={() => updateHandler()}
                     title="Edit note">
                     Save

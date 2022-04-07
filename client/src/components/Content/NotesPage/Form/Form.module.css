@@ -16,12 +16,12 @@
     margin-bottom: var(--margin-base);
 }
 
-.label__text {
+.labelText {
     color: var(--color-05);
     cursor: pointer;
 }
 
-.add__btn {
+.addBtn {
     padding: var(--padding-sm);
     margin-top: var(--margin-base);
     background: var(--color-04);
@@ -33,7 +33,7 @@
     .label {
         width: 100%;
     }
-    .add__btn {
+    .addBtn {
         font-size: var(--font-size-sm);
     }
 }

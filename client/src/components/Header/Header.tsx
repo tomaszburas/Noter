@@ -30,20 +30,18 @@ export const Header = (props: Props) => {
                     title="Noter"
                 />
             </Link>
-            <div className={styles.access__header}>
+            <div className={styles.accessHeader}>
                 {props.auth ? (
                     <>
                         <Link to="/notes">
                             <p
-                                className={
-                                    styles.access__header__text__marginRight
-                                }
+                                className={styles.accessHeaderTextMarginRight}
                                 title="Notes">
                                 Notes
                             </p>
                         </Link>
                         <p
-                            className={styles.access__header__text}
+                            className={styles.accessHeaderText}
                             onClick={() => logoutHandler()}
                             title="Logout">
                             Logout
@@ -53,16 +51,14 @@ export const Header = (props: Props) => {
                     <>
                         <Link to="/sign-in">
                             <p
-                                className={
-                                    styles.access__header__text__marginRight
-                                }
+                                className={styles.accessHeaderTextMarginRight}
                                 title="Sign In">
                                 Sign In
                             </p>
                         </Link>
                         <Link to="/sign-up">
                             <p
-                                className={styles.access__header__text}
+                                className={styles.accessHeaderText}
                                 title="Sign Up">
                                 Sign Up
                             </p>
