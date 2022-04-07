@@ -1,6 +1,6 @@
 import React, { FormEvent, useState } from 'react';
 import { Textarea } from './Textarea/Textarea';
-import { ErrorContainer } from './ErrorContainer/ErrorContainer';
+import { ErrorContainer } from '../../../Common/ErrorContainer/ErrorContainer';
 import styles from './Form.module.css';
 
 interface Props {

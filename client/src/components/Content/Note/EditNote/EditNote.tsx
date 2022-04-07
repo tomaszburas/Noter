@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ErrorContainer } from '../../NotesPage/Form/ErrorContainer/ErrorContainer';
+import { ErrorContainer } from '../../../Common/ErrorContainer/ErrorContainer';
 import { Textarea } from '../../NotesPage/Form/Textarea/Textarea';
 import styles from './EdtNote.module.css';
 

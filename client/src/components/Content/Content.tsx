@@ -9,6 +9,7 @@ import { SignUp } from './Access/SignUp/SignUp';
 import { Home } from './Home/Home';
 import styles from './Content.module.css';
 import { NoteRecordEntity } from 'types';
+import { Loader } from '../Common/Loader/Loader';
 
 interface Props {
     auth: boolean;
@@ -17,12 +18,14 @@ interface Props {
 
 export const Content = (props: Props) => {
     const [notes, setNotes] = useState<NoteRecordEntity[] | []>([]);
+    const [checkAuth, setCheckAuth] = useState<boolean>(false);
 
     useEffect(() => {
         (async () => {
             const res = await fetch('/api/notes');
 
             res.status === 401 ? props.setAuth(false) : props.setAuth(true);
+            setCheckAuth(true);
 
             const data = await res.json();
 
@@ -85,6 +88,8 @@ export const Content = (props: Props) => {
             body: JSON.stringify({ id, text }),
         });
     };
+
+    if (!checkAuth) return <Loader />;
 
     return (
         <div className={styles.content}>

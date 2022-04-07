@@ -6,6 +6,7 @@ import { NavNote } from './NavNote/NavNote';
 import { EditNote } from './EditNote/EditNote';
 import styles from './Note.module.css';
 import { NoteRecordEntity } from 'types';
+import { Loader } from '../../Common/Loader/Loader';
 
 interface Props {
     notes: NoteRecordEntity[] | [];
@@ -18,6 +19,7 @@ export const Note = (props: Props) => {
     const [edit, setEdit] = useState<boolean>(false);
     const [note, setNote] = useState<NoteRecordEntity | null>(null);
     const [noteText, setNoteText] = useState<string>('');
+    const [checkAuth, setCheckAuth] = useState<boolean>(false);
 
     const navigate = useNavigate();
     const id = useParams().id as string;
@@ -27,6 +29,7 @@ export const Note = (props: Props) => {
             const res = await fetch(`/api/notes/${id}`);
 
             res.status === 401 && navigate('/sign-in');
+            setCheckAuth(true);
 
             const data = await res.json();
 
@@ -39,6 +42,8 @@ export const Note = (props: Props) => {
             }
         })();
     }, [id]);
+
+    if (!checkAuth) return <Loader />;
 
     return (
         <>

@@ -1,8 +1,7 @@
+import React from 'react';
 import { Form } from './Form/Form';
 import { NotesList } from './NotesList/NotesList';
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Loader from 'react-spinners/GridLoader';
+import { Navigate } from 'react-router-dom';
 import { NoteRecordEntity } from 'types';
 
 interface Props {
@@ -15,12 +14,6 @@ interface Props {
 }
 
 export const NotesPage = (props: Props) => {
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        !props.auth && navigate('/sign-in');
-    }, [props.auth]);
-
     return (
         <>
             {props.auth ? (
@@ -33,16 +26,7 @@ export const NotesPage = (props: Props) => {
                     />
                 </>
             ) : (
-                <Loader
-                    css={
-                        {
-                            position: 'absolute',
-                            top: '50%',
-                            right: '50%',
-                        } as any
-                    }
-                    color="#19535f"
-                />
+                <Navigate replace to="/sign-in" />
             )}
         </>
     );

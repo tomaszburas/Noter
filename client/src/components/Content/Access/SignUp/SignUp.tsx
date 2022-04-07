@@ -1,7 +1,6 @@
-import React, { FormEvent, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Loader from 'react-spinners/GridLoader';
-import { ErrorContainer } from '../../NotesPage/Form/ErrorContainer/ErrorContainer';
+import React, { FormEvent, useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { ErrorContainer } from '../../../Common/ErrorContainer/ErrorContainer';
 import styles from '../Access.module.css';
 
 interface Props {
@@ -18,10 +17,6 @@ export const SignUp = (props: Props) => {
     });
 
     const navigate = useNavigate();
-
-    useEffect(() => {
-        props.auth && navigate('/notes');
-    }, [props.auth]);
 
     const submitForm = async (e: FormEvent) => {
         e.preventDefault();
@@ -96,16 +91,7 @@ export const SignUp = (props: Props) => {
                     </form>
                 </div>
             ) : (
-                <Loader
-                    css={
-                        {
-                            position: 'absolute',
-                            top: '50%',
-                            right: '50%',
-                        } as any
-                    }
-                    color="#19535f"
-                />
+                <Navigate replace to="/sign-in" />
             )}
         </>
     );
