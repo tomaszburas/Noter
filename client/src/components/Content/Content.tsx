@@ -18,7 +18,7 @@ interface Props {
 
 export const Content = (props: Props) => {
     const [notes, setNotes] = useState<NoteRecordEntity[] | []>([]);
-    const [checkAuth, setCheckAuth] = useState<boolean>(false);
+    const [checkAuth, setCheckAuth] = useState(false);
 
     useEffect(() => {
         (async () => {

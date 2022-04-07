@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const EditNote = (props: Props) => {
-    const [error, setError] = useState<{ err: boolean; text: string }>({
+    const [error, setError] = useState({
         err: false,
         text: '',
     });

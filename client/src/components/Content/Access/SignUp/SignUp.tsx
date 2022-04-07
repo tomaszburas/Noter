@@ -8,10 +8,10 @@ interface Props {
 }
 
 export const SignUp = (props: Props) => {
-    const [username, setUsername] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-    const [repeatPassword, setRepeatPassword] = useState<string>('');
-    const [error, setError] = useState<{ err: boolean; text: string }>({
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [repeatPassword, setRepeatPassword] = useState('');
+    const [error, setError] = useState({
         err: false,
         text: '',
     });

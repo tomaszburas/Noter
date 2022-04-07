@@ -8,8 +8,8 @@ interface Props {
 }
 
 export const Form = (props: Props) => {
-    const [note, setNote] = useState<string>('');
-    const [error, setError] = useState<{ err: boolean; text: string }>({
+    const [note, setNote] = useState('');
+    const [error, setError] = useState({
         err: false,
         text: '',
     });

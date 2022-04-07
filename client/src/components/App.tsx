@@ -5,7 +5,7 @@ import { useState } from 'react';
 import './App.css';
 
 export const App = () => {
-    const [auth, setAuth] = useState<boolean>(false);
+    const [auth, setAuth] = useState(false);
 
     return (
         <>

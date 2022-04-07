@@ -16,10 +16,10 @@ interface Props {
 }
 
 export const Note = (props: Props) => {
-    const [edit, setEdit] = useState<boolean>(false);
+    const [edit, setEdit] = useState(false);
     const [note, setNote] = useState<NoteRecordEntity | null>(null);
-    const [noteText, setNoteText] = useState<string>('');
-    const [checkAuth, setCheckAuth] = useState<boolean>(false);
+    const [noteText, setNoteText] = useState('');
+    const [checkAuth, setCheckAuth] = useState(false);
 
     const navigate = useNavigate();
     const id = useParams().id as string;

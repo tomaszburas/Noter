@@ -9,9 +9,9 @@ interface Props {
 }
 
 export const SignIn = (props: Props) => {
-    const [username, setUsername] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-    const [error, setError] = useState<{ err: boolean; text: string }>({
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState({
         err: false,
         text: '',
     });
