@@ -18,7 +18,7 @@ const app = express();
 app.use(json());
 app.use(cookieParser());
 app.use(passport.initialize());
-app.use(express.static(path.join(__dirname, '/dist/client')));
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 import './server/middleware/passport.js';
 
@@ -26,7 +26,7 @@ app.use('/', Router);
 app.use(handleError);
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/dist/client/index.html'));
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
 app.listen(PORT, () => console.log('Server has started.'));
