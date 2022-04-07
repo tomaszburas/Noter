@@ -1,6 +1,6 @@
 import express from 'express';
-import { Controller } from '../controllers/controller';
 import passport from 'passport';
+import { Controller } from '../controllers/controller.js';
 
 export const Router = express.Router();
 

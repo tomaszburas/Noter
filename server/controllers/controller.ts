@@ -1,8 +1,8 @@
-import { NoteRecord } from '../db/records/note.record';
-import { UserRecord } from '../db/records/user.record';
-import jwt from 'jsonwebtoken';
-import { ACCESS_TOKEN } from '../config';
 import { Request, Response } from 'express';
+import jwt from 'jsonwebtoken';
+import { NoteRecord } from '../db/records/note.record.js';
+import { UserRecord } from '../db/records/user.record.js';
+import { ACCESS_TOKEN } from '../config.js';
 
 export class Controller {
     static async getNotes(req: Request, res: Response) {

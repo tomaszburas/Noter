@@ -1,8 +1,8 @@
 import { v4 as uuid } from 'uuid';
 import { FieldPacket } from 'mysql2';
 
-import { pool } from '../db';
-import { ValidateError } from '../../middleware/errors';
+import { pool } from '../db.js';
+import { ValidateError } from '../../middleware/errors.js';
 import { NoteRecordEntity } from '../../types';
 
 type NoteRecordResults = [NoteRecord[], FieldPacket[]];

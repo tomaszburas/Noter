@@ -1,11 +1,11 @@
 import bcrypt from 'bcrypt';
 import { v4 as uuid } from 'uuid';
-
-import { pool } from '../db';
-import { ValidateError } from '../../middleware/errors';
-import { validatePassword } from '../../utils/validatePassword';
-import { User, UserRecordEntity } from '../../types';
 import { FieldPacket } from 'mysql2';
+
+import { pool } from '../db.js';
+import { ValidateError } from '../../middleware/errors.js';
+import { validatePassword } from '../../utils/validatePassword.js';
+import { User, UserRecordEntity } from '../../types';
 
 type UserRecordResults = [UserRecord[], FieldPacket[]];
 

@@ -1,8 +1,8 @@
 import passportJwt from 'passport-jwt';
 import passport from 'passport';
-import { ACCESS_TOKEN } from '../config';
-import { UserRecord } from '../db/records/user.record';
 import { Request } from 'express';
+import { ACCESS_TOKEN } from '../config.js';
+import { UserRecord } from '../db/records/user.record.js';
 import { User } from '../types';
 
 declare module 'express' {
