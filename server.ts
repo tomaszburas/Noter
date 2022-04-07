@@ -9,12 +9,16 @@ import { Router } from './server/routes/router.js';
 import { handleError } from './server/middleware/errors.js';
 import './server/db/db.js';
 
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 
 app.use(json());
 app.use(cookieParser());
 app.use(passport.initialize());
-app.use(express.static(path.resolve(__dirname, 'client', 'build')));
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 import './server/middleware/passport.js';
 
@@ -22,7 +26,7 @@ app.use('/', Router);
 app.use(handleError);
 
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
 app.listen(PORT, () => console.log('Server has started.'));
