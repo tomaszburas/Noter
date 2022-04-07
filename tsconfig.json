@@ -6,11 +6,11 @@
     "target": "ES6",
     "downlevelIteration": true,
     "lib": ["dom", "es6", "dom.iterable"],
-    "outDir": "./dist",
+    "outDir": "./server/dist",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "moduleResolution": "node",
-    "module": "ESNext",
+    "module": "esnext",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },

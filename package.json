@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start:dev": "tsnd server.ts",
-    "start": "node ./dist/server.js",
+    "start": "node ./server/dist/server.js",
     "build": "tsc"
   },
   "author": "",
