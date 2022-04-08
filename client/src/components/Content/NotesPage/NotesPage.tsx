@@ -1,11 +1,11 @@
 import { Form } from './Form/Form';
 import { NotesList } from './NotesList/NotesList';
 import { Navigate } from 'react-router-dom';
-import { NoteRecordEntity } from 'types';
+import { NotesEntity } from 'types';
 
 interface Props {
-    notes: NoteRecordEntity[] | [];
-    setNotes: (NoteRecordEntity: NoteRecordEntity[] | []) => void;
+    notes: NotesEntity[] | [];
+    setNotes: (NoteRecordEntity: NotesEntity[] | []) => void;
     addNote: (text: string) => void;
     deleteNote: (id: string) => void;
     editNote: (id: string, text: string) => void;

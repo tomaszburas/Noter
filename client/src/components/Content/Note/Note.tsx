@@ -1,15 +1,15 @@
 import ReactMarkdown from 'react-markdown';
-import moment from 'moment';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { NavNote } from './NavNote/NavNote';
 import { EditNote } from './EditNote/EditNote';
 import styles from './Note.module.css';
-import { NoteRecordEntity } from 'types';
+import { NotesEntity } from 'types';
 import { Loader } from '../../Common/Loader/Loader';
+import format from 'date-fns/format';
 
 interface Props {
-    notes: NoteRecordEntity[] | [];
+    notes: NotesEntity[] | [];
     deleteNote: (id: string) => void;
     editNote: (id: string, text: string) => void;
     auth: boolean;
@@ -17,12 +17,16 @@ interface Props {
 
 export const Note = (props: Props) => {
     const [edit, setEdit] = useState(false);
-    const [note, setNote] = useState<NoteRecordEntity | null>(null);
+    const [note, setNote] = useState<NotesEntity | null>(null);
     const [noteText, setNoteText] = useState('');
     const [checkAuth, setCheckAuth] = useState(false);
 
     const navigate = useNavigate();
-    const id = useParams().id as string;
+
+    let { id } = useParams();
+    if (id === undefined) {
+        id = '';
+    }
 
     useEffect(() => {
         (async () => {
@@ -34,10 +38,15 @@ export const Note = (props: Props) => {
             const data = await res.json();
 
             if (data.success) {
-                data.note.date = `${moment(data.createdAt).format(
-                    'L'
-                )} - ${moment(data.createdAt).format('LT')}`;
-                setNote(data.note);
+                const newNote = {
+                    ...data.note,
+                    date: `${format(
+                        new Date(data.note.createdAt),
+                        'd.MM.yyyy'
+                    )} - ${format(new Date(data.note.createdAt), 'hh:mm')}`,
+                };
+
+                setNote(newNote);
                 setNoteText(data.note.text);
             }
         })();

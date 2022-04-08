@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import moment from 'moment';
+import format from 'date-fns/format';
 import { Note } from './Note/Note';
 import { NotFound } from './NotFound/NotFound';
 import { NotesPage } from './NotesPage/NotesPage';
@@ -8,8 +8,8 @@ import { SignIn } from './Access/SignIn/SignIn';
 import { SignUp } from './Access/SignUp/SignUp';
 import { Home } from './Home/Home';
 import styles from './Content.module.css';
-import { NoteRecordEntity } from 'types';
 import { Loader } from '../Common/Loader/Loader';
+import { NotesEntity } from 'types';
 
 interface Props {
     auth: boolean;
@@ -17,7 +17,7 @@ interface Props {
 }
 
 export const Content = (props: Props) => {
-    const [notes, setNotes] = useState<NoteRecordEntity[] | []>([]);
+    const [notes, setNotes] = useState<NotesEntity[] | []>([]);
     const [checkAuth, setCheckAuth] = useState(false);
 
     useEffect(() => {
@@ -29,16 +29,18 @@ export const Content = (props: Props) => {
 
             const data = await res.json();
 
+            let newNotes = [];
             if (data.notes.length) {
-                data.notes.map(
-                    (note: NoteRecordEntity) =>
-                        (note.date = `${moment(note.createdAt).format(
-                            'L'
-                        )} - ${moment(note.createdAt).format('LT')}`)
-                );
+                newNotes = data.notes.map((note: NotesEntity) => ({
+                    ...note,
+                    date: `${format(
+                        new Date(note.createdAt),
+                        'd.MM.yyyy'
+                    )} - ${format(new Date(note.createdAt), 'hh:mm')}`,
+                }));
             }
 
-            setNotes(data.notes);
+            setNotes(newNotes);
         })();
     }, [props.auth]);
 
@@ -54,11 +56,16 @@ export const Content = (props: Props) => {
         });
 
         const data = await res.json();
-        data.noteObj.date = `${moment(data.createdAt).format('L')} - ${moment(
-            data.createdAt
-        ).format('LT')}`;
 
-        setNotes((prevState) => [data.noteObj, ...prevState]);
+        const newNote = {
+            ...data.noteObj,
+            date: `${format(
+                new Date(data.noteObj.createdAt),
+                'd.MM.yyyy'
+            )} - ${format(new Date(data.noteObj.createdAt), 'hh:mm')}`,
+        };
+
+        setNotes((prevState) => [newNote, ...prevState]);
     };
 
     const deleteNote = async (id: string) => {

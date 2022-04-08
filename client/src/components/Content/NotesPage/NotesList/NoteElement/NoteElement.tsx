@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import styles from './NoteElement.module.css';
-import { NoteRecordEntity } from 'types';
+import { NotesEntity } from 'types';
 
 interface Props {
-    note: NoteRecordEntity;
+    note: NotesEntity;
     deleteNote: (id: string) => void;
     editNote: (id: string, text: string) => void;
 }

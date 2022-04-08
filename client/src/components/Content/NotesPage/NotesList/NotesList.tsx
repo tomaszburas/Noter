@@ -1,9 +1,9 @@
-import { NoteRecordEntity } from 'types';
+import { NotesEntity } from 'types';
 import { NoteElement } from './NoteElement/NoteElement';
 import styles from './NotesList.module.css';
 
 interface Props {
-    notes: NoteRecordEntity[] | [];
+    notes: NotesEntity[] | [];
     deleteNote: (id: string) => void;
     editNote: (id: string, text: string) => void;
 }
