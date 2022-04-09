@@ -142,7 +142,7 @@ export const Content = (props: Props) => {
                     path="/sign-up"
                     element={
                         <ProtectedRoute
-                            authorization={true}
+                            authorization={false}
                             isAuth={props.isAuth}
                             setIsAuth={props.setIsAuth}>
                             <SignUp />
