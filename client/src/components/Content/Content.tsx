@@ -8,41 +8,36 @@ import { SignIn } from './Access/SignIn/SignIn';
 import { SignUp } from './Access/SignUp/SignUp';
 import { Home } from './Home/Home';
 import styles from './Content.module.css';
-import { Loader } from '../Common/Loader/Loader';
 import { NotesEntity } from 'types';
+import { ProtectedRoute } from '../Common/ProtectedRoute/ProtectedRoute';
 
 interface Props {
-    auth: boolean;
-    setAuth: (value: boolean) => void;
+    isAuth: boolean | null;
+    setIsAuth: (value: boolean | null) => void;
 }
 
 export const Content = (props: Props) => {
     const [notes, setNotes] = useState<NotesEntity[] | []>([]);
-    const [checkAuth, setCheckAuth] = useState(false);
 
     useEffect(() => {
         (async () => {
             const res = await fetch('/api/notes');
 
-            res.status === 401 ? props.setAuth(false) : props.setAuth(true);
-            setCheckAuth(true);
-
             const data = await res.json();
 
-            let newNotes = [];
-            if (data.notes.length) {
-                newNotes = data.notes.map((note: NotesEntity) => ({
+            if (data.success && data.notes.length) {
+                const newNotes = data.notes.map((note: NotesEntity) => ({
                     ...note,
                     date: `${format(
                         new Date(note.createdAt),
                         'd.MM.yyyy'
                     )} - ${format(new Date(note.createdAt), 'hh:mm')}`,
                 }));
-            }
 
-            setNotes(newNotes);
+                setNotes(newNotes);
+            }
         })();
-    }, [props.auth]);
+    }, [props.isAuth]);
 
     const addNote = async (text: string) => {
         const note = { text };
@@ -96,8 +91,6 @@ export const Content = (props: Props) => {
         });
     };
 
-    if (!checkAuth) return <Loader />;
-
     return (
         <div className={styles.content}>
             <Routes>
@@ -105,34 +98,57 @@ export const Content = (props: Props) => {
                 <Route
                     path="/notes"
                     element={
-                        <NotesPage
-                            notes={notes}
-                            setNotes={setNotes}
-                            addNote={addNote}
-                            deleteNote={deleteNote}
-                            editNote={editNote}
-                            auth={props.auth}
-                        />
+                        <ProtectedRoute
+                            authorization={true}
+                            isAuth={props.isAuth}
+                            setIsAuth={props.setIsAuth}>
+                            <NotesPage
+                                notes={notes}
+                                setNotes={setNotes}
+                                addNote={addNote}
+                                deleteNote={deleteNote}
+                                editNote={editNote}
+                            />
+                        </ProtectedRoute>
                     }
                 />
                 <Route
                     path="/notes/:id"
                     element={
-                        <Note
-                            notes={notes}
-                            deleteNote={deleteNote}
-                            editNote={editNote}
-                            auth={props.auth}
-                        />
+                        <ProtectedRoute
+                            authorization={true}
+                            isAuth={props.isAuth}
+                            setIsAuth={props.setIsAuth}>
+                            <Note
+                                notes={notes}
+                                deleteNote={deleteNote}
+                                editNote={editNote}
+                            />
+                        </ProtectedRoute>
                     }
                 />
                 <Route
                     path="/sign-in"
                     element={
-                        <SignIn auth={props.auth} setAuth={props.setAuth} />
+                        <ProtectedRoute
+                            authorization={false}
+                            isAuth={props.isAuth}
+                            setIsAuth={props.setIsAuth}>
+                            <SignIn setIsAuth={props.setIsAuth} />
+                        </ProtectedRoute>
                     }
                 />
-                <Route path="/sign-up" element={<SignUp auth={props.auth} />} />
+                <Route
+                    path="/sign-up"
+                    element={
+                        <ProtectedRoute
+                            authorization={true}
+                            isAuth={props.isAuth}
+                            setIsAuth={props.setIsAuth}>
+                            <SignUp />
+                        </ProtectedRoute>
+                    }
+                />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </div>

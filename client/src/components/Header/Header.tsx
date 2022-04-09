@@ -3,8 +3,8 @@ import logo from '../../assets/img/logo.png';
 import styles from './Header.module.css';
 
 interface Props {
-    auth: boolean;
-    setAuth: (value: boolean) => void;
+    isAuth: boolean | null;
+    setIsAuth: (value: boolean | null) => void;
 }
 
 export const Header = (props: Props) => {
@@ -15,7 +15,7 @@ export const Header = (props: Props) => {
         const data = await res.json();
 
         if (data.success) {
-            props.setAuth(false);
+            props.setIsAuth(null);
             navigate('/');
         }
     };
@@ -31,7 +31,7 @@ export const Header = (props: Props) => {
                 />
             </Link>
             <div className={styles.accessHeader}>
-                {props.auth ? (
+                {props.isAuth ? (
                     <>
                         <Link to="/notes">
                             <p

@@ -1,5 +1,5 @@
 import ReactMarkdown from 'react-markdown';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { NavNote } from './NavNote/NavNote';
 import { EditNote } from './EditNote/EditNote';
@@ -12,31 +12,23 @@ interface Props {
     notes: NotesEntity[] | [];
     deleteNote: (id: string) => void;
     editNote: (id: string, text: string) => void;
-    auth: boolean;
 }
 
 export const Note = (props: Props) => {
     const [edit, setEdit] = useState(false);
     const [note, setNote] = useState<NotesEntity | null>(null);
+    const [checkNote, setCheckNote] = useState(false);
     const [noteText, setNoteText] = useState('');
-    const [checkAuth, setCheckAuth] = useState(false);
 
-    const navigate = useNavigate();
-
-    let { id } = useParams();
-    if (id === undefined) {
-        id = '';
-    }
+    const id = useParams().id as string;
 
     useEffect(() => {
         (async () => {
             const res = await fetch(`/api/notes/${id}`);
 
-            res.status === 401 && navigate('/sign-in');
-            setCheckAuth(true);
-
             const data = await res.json();
 
+            setCheckNote(true);
             if (data.success) {
                 const newNote = {
                     ...data.note,
@@ -52,11 +44,13 @@ export const Note = (props: Props) => {
         })();
     }, [id]);
 
-    if (!checkAuth) return <Loader />;
+    if (!checkNote) {
+        return <Loader />;
+    }
 
     return (
         <>
-            {note && props.auth ? (
+            {note ? (
                 <>
                     <NavNote
                         noteId={id}
@@ -93,7 +87,7 @@ export const Note = (props: Props) => {
                             Go Back
                         </span>
                     </Link>
-                    <div className={styles.noteBox}>
+                    <div className={styles.noteContainer}>
                         <p className={styles.noteBoxText}>
                             There is no such note
                         </p>

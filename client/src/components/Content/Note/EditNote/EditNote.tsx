@@ -24,16 +24,20 @@ export const EditNote = (props: Props) => {
                 err: true,
                 text: 'The note cannot be shorter than 5 characters.',
             });
-        } else if (props.noteText.trim().length > 2500) {
+            return;
+        }
+
+        if (props.noteText.trim().length > 2500) {
             setError({
                 err: true,
                 text: 'Note cannot be longer than 2500 characters.',
             });
-        } else {
-            setError({ err: false, text: '' });
-            props.setEdit(false);
-            props.editNote(props.noteId, props.noteText.trim());
+            return;
         }
+
+        setError({ err: false, text: '' });
+        props.setEdit(false);
+        props.editNote(props.noteId, props.noteText.trim());
     };
 
     return (

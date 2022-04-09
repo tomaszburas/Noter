@@ -5,6 +5,13 @@ import { UserRecord } from '../db/records/user.record.js';
 import { ACCESS_TOKEN } from '../config.js';
 
 export class Controller {
+    static async auth(req: Request, res: Response) {
+        if (req.user) {
+            res.status(200).json({
+                success: true,
+            });
+        }
+    }
     static async getNotes(req: Request, res: Response) {
         const notes = await NoteRecord.getAll(req.user.id);
 
@@ -18,6 +25,12 @@ export class Controller {
         const { id } = req.params;
 
         const note = await NoteRecord.getOne(id, req.user.id);
+
+        if (!note) {
+            res.status(400).json({
+                success: false,
+            });
+        }
 
         res.status(200).json({
             success: true,

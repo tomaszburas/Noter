@@ -14,7 +14,7 @@ export const Form = (props: Props) => {
         text: '',
     });
 
-    const submitForm = (e: FormEvent) => {
+    const submitForm = (e: FormEvent): void => {
         e.preventDefault();
 
         if (note.trim().length < 5) {
@@ -22,16 +22,20 @@ export const Form = (props: Props) => {
                 err: true,
                 text: 'The note cannot be shorter than 5 characters.',
             });
-        } else if (note.trim().length > 2500) {
+            return;
+        }
+
+        if (note.trim().length > 2500) {
             setError({
                 err: true,
                 text: 'Note cannot be longer than 2500 characters.',
             });
-        } else {
-            setError({ err: false, text: '' });
-            props.addNote(note.trim());
-            setNote('');
+            return;
         }
+
+        setError({ err: false, text: '' });
+        props.addNote(note.trim());
+        setNote('');
     };
 
     return (

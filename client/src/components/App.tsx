@@ -5,12 +5,12 @@ import { useState } from 'react';
 import './App.css';
 
 export const App = () => {
-    const [auth, setAuth] = useState(false);
+    const [isAuth, setIsAuth] = useState<boolean | null>(null);
 
     return (
         <>
-            <Header setAuth={setAuth} auth={auth} />
-            <Content setAuth={setAuth} auth={auth} />
+            <Header isAuth={isAuth} setIsAuth={setIsAuth} />
+            <Content isAuth={isAuth} setIsAuth={setIsAuth} />
             <Footer />
         </>
     );

@@ -1,15 +1,16 @@
 import express from 'express';
-import passport from 'passport';
 import { Controller } from '../controllers/controller.js';
+import { authenticateJwt } from '../utils/authenticateJwt.js';
 
 export const Router = express.Router();
 
-Router.use('/api/notes', passport.authenticate('jwt', { session: false }));
+Router.use('/api', authenticateJwt);
 
 Router.post('/sign-in', Controller.signIn)
     .post('/sign-up', Controller.signUp)
     .get('/logout', Controller.logout)
 
+    .get('/api/auth', Controller.auth)
     .get('/api/notes', Controller.getNotes)
     .get('/api/notes/:id', Controller.getNote)
     .post('/api/notes', Controller.addNote)
