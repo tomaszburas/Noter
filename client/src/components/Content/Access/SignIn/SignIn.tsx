@@ -2,18 +2,17 @@ import { FormEvent, ReactElement, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ErrorContainer } from '../../../Common/ErrorContainer/ErrorContainer';
 import styles from '../Access.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsAuth } from '../../../../redux/features/user/users-slice';
 
-interface Props {
-    setIsAuth: (value: boolean) => void;
-}
-
-export const SignIn = (props: Props) => {
+export const SignIn = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState({
         err: false,
         text: '',
     });
+    const dispatch = useDispatch();
 
     const navigate = useNavigate();
 
@@ -35,7 +34,7 @@ export const SignIn = (props: Props) => {
         const data = await res.json();
 
         if (data.success) {
-            props.setIsAuth(true);
+            dispatch(setIsAuth(true));
             navigate('/notes');
         } else {
             setError({ err: true, text: data.message });

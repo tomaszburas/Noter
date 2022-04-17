@@ -12,6 +12,7 @@ export class Controller {
             });
         }
     }
+
     static async getNotes(req: Request, res: Response) {
         const notes = await NoteRecord.getAll(req.user.id);
 

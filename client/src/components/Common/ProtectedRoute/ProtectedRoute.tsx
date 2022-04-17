@@ -2,35 +2,39 @@ import { ReactElement } from 'react';
 import { Navigate } from 'react-router-dom';
 import { Loader } from '../Loader/Loader';
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../redux/store';
+import { setIsAuth } from '../../../redux/features/user/users-slice';
 
 interface Props {
     children: ReactElement;
     authorization: boolean;
-    isAuth: boolean | null;
-    setIsAuth: (value: boolean | null) => void;
 }
 
-export const ProtectedRoute = (props: Props): any => {
+export const ProtectedRoute = ({ authorization, children }: Props): any => {
+    const dispatch = useDispatch();
+    const { isAuth } = useSelector((store: RootState) => store.user);
+
     useEffect(() => {
         (async () => {
             const res = await fetch('/api/auth');
             const data = await res.json();
 
             if (data.success) {
-                props.setIsAuth(true);
+                dispatch(setIsAuth(true));
             } else {
-                props.setIsAuth(false);
+                dispatch(setIsAuth(false));
             }
         })();
     }, []);
 
-    if (props.isAuth === null) return <Loader />;
+    if (isAuth === null) return <Loader />;
 
-    if (!props.authorization) {
-        return !props.isAuth ? props.children : <Navigate to="/notes" />;
+    if (!authorization) {
+        return !isAuth ? children : <Navigate to="/notes" />;
     }
 
-    if (props.authorization) {
-        return props.isAuth ? props.children : <Navigate to="/sign-in" />;
+    if (authorization) {
+        return isAuth ? children : <Navigate to="/sign-in" />;
     }
 };

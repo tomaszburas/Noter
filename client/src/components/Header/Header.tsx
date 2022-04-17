@@ -1,21 +1,21 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { setIsAuth } from '../../redux/features/user/users-slice';
+import { RootState } from '../../redux/store';
 import logo from '../../assets/img/logo.png';
 import styles from './Header.module.css';
 
-interface Props {
-    isAuth: boolean | null;
-    setIsAuth: (value: boolean | null) => void;
-}
-
-export const Header = (props: Props) => {
+export const Header = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { isAuth } = useSelector((store: RootState) => store.user);
 
     const logoutHandler = async () => {
         const res = await fetch('/logout');
         const data = await res.json();
 
         if (data.success) {
-            props.setIsAuth(null);
+            dispatch(setIsAuth(null));
             navigate('/');
         }
     };
@@ -31,7 +31,7 @@ export const Header = (props: Props) => {
                 />
             </Link>
             <div className={styles.accessHeader}>
-                {props.isAuth ? (
+                {isAuth ? (
                     <>
                         <Link to="/notes">
                             <p

@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { ErrorContainer } from '../../../Common/ErrorContainer/ErrorContainer';
 import { Textarea } from '../../NotesPage/Form/Textarea/Textarea';
 import styles from './EdtNote.module.css';
+import { useDispatch } from 'react-redux';
+import { editNote } from '../../../../redux/features/user/notes-slice';
 
 interface Props {
     noteId: string;
@@ -9,17 +11,23 @@ interface Props {
     noteText: string;
     setNoteText: (text: string) => void;
     setEdit: (value: boolean) => void;
-    editNote: (id: string, text: string) => void;
 }
 
-export const EditNote = (props: Props) => {
+export const EditNote = ({
+    noteId,
+    noteDate,
+    noteText,
+    setNoteText,
+    setEdit,
+}: Props) => {
+    const dispatch = useDispatch();
     const [error, setError] = useState({
         err: false,
         text: '',
     });
 
     const updateHandler = () => {
-        if (props.noteText.trim().length < 5) {
+        if (noteText.trim().length < 5) {
             setError({
                 err: true,
                 text: 'The note cannot be shorter than 5 characters.',
@@ -27,7 +35,7 @@ export const EditNote = (props: Props) => {
             return;
         }
 
-        if (props.noteText.trim().length > 2500) {
+        if (noteText.trim().length > 2500) {
             setError({
                 err: true,
                 text: 'Note cannot be longer than 2500 characters.',
@@ -36,16 +44,16 @@ export const EditNote = (props: Props) => {
         }
 
         setError({ err: false, text: '' });
-        props.setEdit(false);
-        props.editNote(props.noteId, props.noteText.trim());
+        setEdit(false);
+        dispatch(editNote({ id: noteId, text: noteText.trim() }));
     };
 
     return (
         <div className={styles.noteContainer}>
             <div className={styles.leftBox}>
                 {error.err && <ErrorContainer errorText={error.text} />}
-                <Textarea note={props.noteText} setNote={props.setNoteText} />
-                <p className={styles.noteDate}>{props.noteDate}</p>
+                <Textarea note={noteText} setNote={setNoteText} />
+                <p className={styles.noteDate}>{noteDate}</p>
             </div>
             <div className={styles.rightBox}>
                 <button

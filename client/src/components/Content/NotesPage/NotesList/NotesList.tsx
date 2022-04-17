@@ -1,27 +1,25 @@
-import { NotesEntity } from 'types';
 import { NoteElement } from './NoteElement/NoteElement';
 import styles from './NotesList.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../../redux/store';
+import { useEffect } from 'react';
+import { getNotes } from '../../../../redux/features/user/notes-slice';
 
-interface Props {
-    notes: NotesEntity[] | [];
-    deleteNote: (id: string) => void;
-    editNote: (id: string, text: string) => void;
-}
+export const NotesList = () => {
+    const dispatch = useDispatch();
+    const { notes } = useSelector((store: RootState) => store.note);
+    const { isAuth } = useSelector((store: RootState) => store.user);
 
-export const NotesList = (props: Props) => {
+    useEffect(() => {
+        dispatch(getNotes());
+    }, [isAuth]);
+
     return (
         <div className={styles.notesContainer}>
             <p>Notes List</p>
-            {props.notes.length ? (
-                props.notes.map((note) => {
-                    return (
-                        <NoteElement
-                            key={note.id}
-                            note={note}
-                            deleteNote={props.deleteNote}
-                            editNote={props.editNote}
-                        />
-                    );
+            {notes.length ? (
+                notes.map((note) => {
+                    return <NoteElement key={note.id} note={note} />;
                 })
             ) : (
                 <p className={styles.text}>No notes.</p>

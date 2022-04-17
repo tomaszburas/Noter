@@ -4,10 +4,10 @@ interface Props {
     errorText: string;
 }
 
-export const ErrorContainer = (props: Props) => {
+export const ErrorContainer = ({ errorText }: Props) => {
     return (
         <div className={styles.errorContainer}>
-            <p className={styles.errorText}>{props.errorText}</p>
+            <p className={styles.errorText}>{errorText}</p>
         </div>
     );
 };

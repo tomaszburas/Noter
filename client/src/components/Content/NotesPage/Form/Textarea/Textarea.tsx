@@ -5,12 +5,12 @@ interface Props {
     setNote: (text: string) => void;
 }
 
-export const Textarea = (props: Props) => {
+export const Textarea = ({ note, setNote }: Props) => {
     return (
         <textarea
             className={styles.textarea}
-            onChange={(e) => props.setNote(e.target.value)}
-            value={props.note}
+            onChange={(e) => setNote(e.target.value)}
+            value={note}
             placeholder="Note text..."
         />
     );

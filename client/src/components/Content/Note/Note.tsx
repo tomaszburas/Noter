@@ -6,15 +6,9 @@ import { EditNote } from './EditNote/EditNote';
 import styles from './Note.module.css';
 import { NotesEntity } from 'types';
 import { Loader } from '../../Common/Loader/Loader';
-import format from 'date-fns/format';
+import { createDate } from '../../../utils/createDate';
 
-interface Props {
-    notes: NotesEntity[] | [];
-    deleteNote: (id: string) => void;
-    editNote: (id: string, text: string) => void;
-}
-
-export const Note = (props: Props) => {
+export const Note = () => {
     const [edit, setEdit] = useState(false);
     const [note, setNote] = useState<NotesEntity | null>(null);
     const [checkNote, setCheckNote] = useState(false);
@@ -32,10 +26,7 @@ export const Note = (props: Props) => {
             if (data.success) {
                 const newNote = {
                     ...data.note,
-                    date: `${format(
-                        new Date(data.note.createdAt),
-                        'd.MM.yyyy'
-                    )} - ${format(new Date(data.note.createdAt), 'hh:mm')}`,
+                    date: createDate(data.note.createdAt),
                 };
 
                 setNote(newNote);
@@ -52,11 +43,7 @@ export const Note = (props: Props) => {
         <>
             {note ? (
                 <>
-                    <NavNote
-                        noteId={id}
-                        setEdit={setEdit}
-                        deleteNote={props.deleteNote}
-                    />
+                    <NavNote noteId={id} setEdit={setEdit} />
                     <div className={styles.noteContainer}>
                         <p>Note</p>
                         <div className={styles.noteContent}>
@@ -74,7 +61,6 @@ export const Note = (props: Props) => {
                                     noteText={noteText}
                                     setNoteText={setNoteText}
                                     setEdit={setEdit}
-                                    editNote={props.editNote}
                                 />
                             )}
                         </div>

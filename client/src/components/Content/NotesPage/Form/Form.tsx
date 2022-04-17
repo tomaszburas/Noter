@@ -2,19 +2,18 @@ import { FormEvent, useState } from 'react';
 import { Textarea } from './Textarea/Textarea';
 import { ErrorContainer } from '../../../Common/ErrorContainer/ErrorContainer';
 import styles from './Form.module.css';
+import { addNote } from '../../../../redux/features/user/notes-slice';
+import { useDispatch } from 'react-redux';
 
-interface Props {
-    addNote: (text: string) => void;
-}
-
-export const Form = (props: Props) => {
+export const Form = () => {
+    const dispatch = useDispatch();
     const [note, setNote] = useState('');
     const [error, setError] = useState({
         err: false,
         text: '',
     });
 
-    const submitForm = (e: FormEvent): void => {
+    const submitForm = async (e: FormEvent): Promise<void> => {
         e.preventDefault();
 
         if (note.trim().length < 5) {
@@ -34,8 +33,8 @@ export const Form = (props: Props) => {
         }
 
         setError({ err: false, text: '' });
-        props.addNote(note.trim());
         setNote('');
+        dispatch(addNote(note.trim()));
     };
 
     return (

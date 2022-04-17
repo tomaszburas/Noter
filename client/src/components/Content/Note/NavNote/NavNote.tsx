@@ -1,17 +1,19 @@
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './NavNote.module.css';
+import { useDispatch } from 'react-redux';
+import { deleteNote } from '../../../../redux/features/user/notes-slice';
 
 interface Props {
     noteId: string;
     setEdit: (value: boolean) => void;
-    deleteNote: (id: string) => void;
 }
 
-export const NavNote = (props: Props) => {
+export const NavNote = ({ noteId, setEdit }: Props) => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const deleteNoteHandler = () => {
-        props.deleteNote(props.noteId);
+        dispatch(deleteNote(noteId));
         navigate('/notes');
     };
 
@@ -32,7 +34,7 @@ export const NavNote = (props: Props) => {
                 </button>
                 <button
                     className={styles.editBtn}
-                    onClick={() => props.setEdit(true)}
+                    onClick={() => setEdit(true)}
                     title="Edit note">
                     Edit
                 </button>

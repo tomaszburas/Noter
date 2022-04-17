@@ -5,20 +5,18 @@ import { NotesEntity } from 'types';
 
 interface Props {
     note: NotesEntity;
-    deleteNote: (id: string) => void;
-    editNote: (id: string, text: string) => void;
 }
 
-export const NoteElement = (props: Props) => {
+export const NoteElement = ({ note }: Props) => {
     return (
         <div className={styles.notesContainer}>
             <div className={styles.leftBox}>
-                <ReactMarkdown>{props.note.text}</ReactMarkdown>
-                <p className={styles.noteDate}>{props.note.date}</p>
+                <ReactMarkdown>{note.text}</ReactMarkdown>
+                <p className={styles.noteDate}>{note.date}</p>
             </div>
             <div className={styles.rightBox}>
-                <Link className={styles.showBtn} to={`/notes/${props.note.id}`}>
-                    <button title="Delete note">Show</button>
+                <Link className={styles.showBtn} to={`/notes/${note.id}`}>
+                    <button title="Show note">Show</button>
                 </Link>
             </div>
         </div>
