@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { setIsAuth } from '../../redux/features/user/users-slice';
+import { setIsAuth } from '../../redux/features/users-slice';
 import { RootState } from '../../redux/store';
 import logo from '../../assets/img/logo.png';
 import styles from './Header.module.css';

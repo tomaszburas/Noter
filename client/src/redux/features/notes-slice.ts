@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { EditNoteEntity, NotesState } from '../../../types/Redux/Note';
+import { EditNoteEntity, NotesState } from '../../types/Redux/Note';
 import { NotesEntity } from 'types';
-import { createDate } from '../../../utils/createDate';
+import { createDate } from '../../utils/createDate';
 
 const initialState: NotesState = {
     notes: [],

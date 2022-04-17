@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './NavNote.module.css';
 import { useDispatch } from 'react-redux';
-import { deleteNote } from '../../../../redux/features/user/notes-slice';
+import { deleteNote } from '../../../../redux/features/notes-slice';
 
 interface Props {
     noteId: string;

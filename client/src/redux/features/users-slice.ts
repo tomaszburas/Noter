@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { SetIsAuth, UserState } from '../../../types/Redux/User';
+import { SetIsAuth, UserState } from '../../types/Redux/User';
 
 const initialState: UserState = {
     isAuth: null,

@@ -4,7 +4,7 @@ import { Loader } from '../Loader/Loader';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
-import { setIsAuth } from '../../../redux/features/user/users-slice';
+import { setIsAuth } from '../../../redux/features/users-slice';
 
 interface Props {
     children: ReactElement;

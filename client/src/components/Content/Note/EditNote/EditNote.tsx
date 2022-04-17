@@ -3,7 +3,7 @@ import { ErrorContainer } from '../../../Common/ErrorContainer/ErrorContainer';
 import { Textarea } from '../../NotesPage/Form/Textarea/Textarea';
 import styles from './EdtNote.module.css';
 import { useDispatch } from 'react-redux';
-import { editNote } from '../../../../redux/features/user/notes-slice';
+import { editNote } from '../../../../redux/features/notes-slice';
 
 interface Props {
     noteId: string;

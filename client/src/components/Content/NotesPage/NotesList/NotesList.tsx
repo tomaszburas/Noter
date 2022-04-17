@@ -3,7 +3,7 @@ import styles from './NotesList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/store';
 import { useEffect } from 'react';
-import { getNotes } from '../../../../redux/features/user/notes-slice';
+import { getNotes } from '../../../../redux/features/notes-slice';
 
 export const NotesList = () => {
     const dispatch = useDispatch();

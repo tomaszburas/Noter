@@ -2,7 +2,7 @@ import { FormEvent, useState } from 'react';
 import { Textarea } from './Textarea/Textarea';
 import { ErrorContainer } from '../../../Common/ErrorContainer/ErrorContainer';
 import styles from './Form.module.css';
-import { addNote } from '../../../../redux/features/user/notes-slice';
+import { addNote } from '../../../../redux/features/notes-slice';
 import { useDispatch } from 'react-redux';
 
 export const Form = () => {

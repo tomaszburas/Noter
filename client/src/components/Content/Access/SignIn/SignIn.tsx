@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ErrorContainer } from '../../../Common/ErrorContainer/ErrorContainer';
 import styles from '../Access.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { setIsAuth } from '../../../../redux/features/user/users-slice';
+import { setIsAuth } from '../../../../redux/features/users-slice';
 
 export const SignIn = () => {
     const [username, setUsername] = useState('');
