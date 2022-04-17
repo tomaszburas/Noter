@@ -17,7 +17,9 @@ export const NotesList = () => {
         setLoading(true);
     }, [isAuth]);
 
-    if (!loading) return <Loader />;
+    if (!loading) {
+        return <Loader />;
+    }
 
     return (
         <div className={styles.notesContainer}>
